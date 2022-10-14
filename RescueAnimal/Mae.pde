@@ -24,7 +24,11 @@ class Mae extends Animal {
 
   // Draw Animal.
   void drawAnimal() {
-
+    pushMatrix();
+    translate(position.x,position.y);
+    rectMode(CENTER);
+    rect(-50,-50, 100, 50);
+    popMatrix();
   }
 
   // Modify some body parts to describe movement of an animal.
