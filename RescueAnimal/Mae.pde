@@ -1,3 +1,6 @@
+// Mae.pde
+// Written by Lee Yong Kyu.
+
 class Mae extends Animal {
 
   //////////////////

@@ -1,3 +1,6 @@
+// Namsengi.pde
+// Written by Nam Eun Su.
+
 class Namsengi extends Animal {
 
 

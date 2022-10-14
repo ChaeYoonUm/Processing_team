@@ -1,3 +1,6 @@
+// SuwonFrog.pde
+// Written by Um Chae Yoon.
+
 class SuwonFrog extends Animal {
 
   //////////////////

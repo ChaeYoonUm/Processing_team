@@ -1,7 +1,10 @@
+// Crab.pde
+// Written by Yang Eun Seo.
+
 class Crab extends Animal {
 
 
-  
+
   //////////////////
   // constructors //
   //////////////////

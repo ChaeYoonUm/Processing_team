@@ -1,3 +1,6 @@
+// Noru.pde
+// Written by Lee Yong Kyu.
+
 class Noru extends Animal {
 
   //////////////////

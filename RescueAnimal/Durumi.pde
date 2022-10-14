@@ -1,3 +1,6 @@
+// Durumi.pde
+// Written by Um Chae Yoon.
+
 class Durumi extends Animal {
 
 

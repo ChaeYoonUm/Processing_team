@@ -1,3 +1,6 @@
+// GasiFish.pde
+// Written by Yang Eun Seo.
+
 class GasiFish extends Animal {
 
   //////////////////
