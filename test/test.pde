@@ -1,5 +1,13 @@
+PImage img;
+
 void setup() {
-  size(400, 400);
+  size(1600, 900);
+  img = loadImage("Background.png");
+}
+
+void draw() {
+  // x, y value to crop image
+  image(img, 0, 0);
 }
 
 void draw() {
