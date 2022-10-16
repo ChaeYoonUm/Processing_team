@@ -10,10 +10,10 @@ class GasiFish extends Animal {
   GasiFish() {
     super();
   }
-  GasiFish(int x, int y) {
+  GasiFish(float x, float y) {
     super(x, y);
   }
-  GasiFish(int x, int y, float rotation) {
+  GasiFish(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 

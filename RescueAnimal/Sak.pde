@@ -10,10 +10,10 @@ class Sak extends Animal {
   Sak() {
     super();
   }
-  Sak(int x, int y) {
+  Sak(float x, float y) {
     super(x, y);
   }
-  Sak(int x, int y, float rotation) {
+  Sak(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 

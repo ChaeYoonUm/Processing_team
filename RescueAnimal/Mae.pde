@@ -10,10 +10,10 @@ class Mae extends Animal {
   Mae() {
     super();
   }
-  Mae(int x, int y) {
+  Mae(float x, float y) {
     super(x, y);
   }
-  Mae(int x, int y, float rotation) {
+  Mae(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 
@@ -27,12 +27,12 @@ class Mae extends Animal {
     pushMatrix();
     translate(position.x,position.y);
     rectMode(CENTER);
-    rect(-50,-50, 100, 50);
+    rect(0, 0, 100, 50);
     popMatrix();
   }
 
   // Modify some body parts to describe movement of an animal.
   void move() {
-
+    setPosition(position.x + 1, position.y);
   }
 }

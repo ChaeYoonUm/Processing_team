@@ -7,7 +7,7 @@ class Position {
   ///////////////
   // variables //
   ///////////////
-  int x, y;
+  float x, y;
 
   //////////////////
   // constructors //
@@ -15,8 +15,16 @@ class Position {
   Position() {
     this(0, 0);
   }
-  Position(int x, int y) {
+  Position(float x, float y) {
     this.x = x;
     this.y = y;
+  }
+
+  /////////////
+  // methods //
+  /////////////
+  
+  Position add(Position b) {
+    return new Position(x + b.x, y + b.y);
   }
 }

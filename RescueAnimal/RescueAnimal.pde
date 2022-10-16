@@ -1,26 +1,36 @@
 // test code
-Map m;
-Mae mae;
+// Mae mae;
+
+Map map;
+
 void setup() {
   size(1600, 900);
-  m = new Map();
-  m.addBoundaryVertex(0, 0);
-  m.addBoundaryVertex(100, 100);
 
-  mae = new Mae(width/2, height/2);
+  // mae = new Mae(width/2, height/2);
+  // mae.addBoundaryVertex(-100, -100);
+  // mae.addBoundaryVertex(-50, 100);
+  // mae.addBoundaryVertex(0, -100);
+  // mae.addBoundaryVertex(150, 100);
+  // mae.addBoundaryVertex(0, -300);
+
+  // map = new Map(width/2, height/2);
+  // map.addBoundaryVertex(-100, -100);
+  // map.addBoundaryVertex(200, 100);
+  // println(map.position.x);
 }
 
 void draw() {
   background(255);
   stroke(0);
-  m.drawBoundary();
+  fill(0);
+  // mae.drawAnimal();
+  // mae.showBoundary();
+  // mae.move();
 
-  mae.drawAnimal();
+  // map.showBoundary();
 }
 
-
-void mouseClicked() {
-  if(m.isMouseOn(mouseX, mouseY)) {
-    println("Test");
-  }
+void mousePressed() {
+  // println(mae.isMouseOn(mouseX, mouseY) ? "inside" : "outside");
+  // println(map.isMouseOn(mouseX, mouseY) ? "inside" : "outside");
 }

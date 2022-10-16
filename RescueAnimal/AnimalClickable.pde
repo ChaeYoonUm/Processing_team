@@ -10,15 +10,33 @@ class AnimalClickable implements IClickable {
   ///////////////
 
   ArrayList<Position> polygon = null;
+  Position offset;
 
   /////////////
   // methods //
   /////////////
 
+  // offset used in showing boundary and mouse enter checking
+  void setOffset(Position _offset) {
+    offset = _offset;
+  }
+
   boolean isMouseOn(int mouse_x, int mouse_y) {
     // https://bowbowbow.tistory.com/24
     // use this.
-    return true;
+    int cnt = 0;
+    for(int i = 0; i < polygon.size(); i++) {
+      Position pos1 = polygon.get(i).add(offset);
+      Position pos2 = polygon.get((i+1) % polygon.size()).add(offset);
+
+      if((pos2.y < mouse_y) != (pos1.y < mouse_y)) {
+        // calculate cross point.
+        float atX = (mouse_y - pos1.y) * (pos2.x - pos1.x) / (pos2.y - pos1.y) + pos1.x;
+        if(atX > mouse_x) cnt++;
+      }
+    }
+    if(cnt % 2 == 0) return false;
+    else return true;
   }
 
   void addBoundaryVertex(int boundary_x, int boundary_y) {
@@ -27,7 +45,16 @@ class AnimalClickable implements IClickable {
     polygon.add(pos);
   }
 
-  void drawBoundary() {
+  void showBoundary() {
     // draw shape
+    pushMatrix();
+    translate(offset.x,offset.y);
+    float angle;
+    beginShape();
+    for(int i = 0; i < polygon.size(); i++) {
+      vertex(polygon.get(i).x, polygon.get(i).y);
+    }
+    endShape(CLOSE);
+    popMatrix();
   }
 }

@@ -12,10 +12,10 @@ class Crab extends Animal {
   Crab() {
     super();
   }
-  Crab(int x, int y) {
+  Crab(float x, float y) {
     super(x, y);
   }
-  Crab(int x, int y, float rotation) {
+  Crab(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 

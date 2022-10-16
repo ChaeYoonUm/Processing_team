@@ -11,10 +11,10 @@ class Durumi extends Animal {
   Durumi() {
     super();
   }
-  Durumi(int x, int y) {
+  Durumi(float x, float y) {
     super(x, y);
   }
-  Durumi(int x, int y, float rotation) {
+  Durumi(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 
