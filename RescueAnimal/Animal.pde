@@ -12,9 +12,6 @@ abstract class Animal extends AnimalClickable {
   Position position;
   float rotation;
 
-  // variables to interact.
-  // ArrayList<Position> polygon;
-
   //////////////////
   // constructors //
   //////////////////
@@ -22,13 +19,13 @@ abstract class Animal extends AnimalClickable {
   Animal() {
     this(0, 0, 0);
   }
-  Animal(int x, int y) {
+  Animal(float x, float y) {
     this(x, y, 0);
   }
-  Animal(int x, int y, float rotation) {
+  Animal(float x, float y, float rotation) {
     position = new Position(x, y);
     this.rotation = rotation;
-    // polygon = new ArrayList<Position>();
+    setOffset(position);
   }
 
   /////////////
@@ -40,6 +37,13 @@ abstract class Animal extends AnimalClickable {
 
   // Modify some body parts to describe movement of an animal.
   abstract void move();
+
+  // Set a new position and adjust offset of click area.
+  void setPosition(float x, float y) {
+    position.x = x;
+    position.y = y;
+    setOffset(position);
+  }
 
 
   ////////////////////

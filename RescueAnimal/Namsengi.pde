@@ -11,10 +11,10 @@ class Namsengi extends Animal {
   Namsengi() {
     super();
   }
-  Namsengi(int x, int y) {
+  Namsengi(float x, float y) {
     super(x, y);
   }
-  Namsengi(int x, int y, float rotation) {
+  Namsengi(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 

@@ -13,5 +13,5 @@ interface IClickable {
 
   void addBoundaryVertex(int boundary_x, int boundary_y);
 
-  void drawBoundary();
+  void showBoundary();
 }

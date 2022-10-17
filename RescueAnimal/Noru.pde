@@ -10,10 +10,10 @@ class Noru extends Animal {
   Noru() {
     super();
   }
-  Noru(int x, int y) {
+  Noru(float x, float y) {
     super(x, y);
   }
-  Noru(int x, int y, float rotation) {
+  Noru(float x, float y, float rotation) {
     super(x, y, rotation);
   }
 

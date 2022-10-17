@@ -10,15 +10,21 @@ class UIClickable implements IClickable {
   ///////////////
 
   Position lefttop = null, rightbottom = null;
+  Position offset;
 
   /////////////
   // methods //
   /////////////
 
+  // offset used in showing boundary and mouse enter checking
+  void setOffset(Position _offset) {
+    offset = _offset;
+  }
+
   // Rectangular area check
   boolean isMouseOn(int mouse_x, int mouse_y) {
-    if(!(lefttop.x < mouse_x && mouse_x < rightbottom.x)) return false;
-    if(!(lefttop.y < mouse_y && mouse_y < rightbottom.y)) return false;
+    if(!(lefttop.x + offset.x < mouse_x && mouse_x < rightbottom.x + offset.x)) return false;
+    if(!(lefttop.y + offset.y < mouse_y && mouse_y < rightbottom.y + offset.y)) return false;
     return true;
   }
 
@@ -30,8 +36,12 @@ class UIClickable implements IClickable {
     return;
   }
 
-  void drawBoundary() {
+  void showBoundary() {
     if(lefttop == null || rightbottom == null) return;
+    pushMatrix();
+    rectMode(CORNERS);
+    translate(offset.x,offset.y);
     rect(lefttop.x, lefttop.y, rightbottom.x, rightbottom.y);
+    popMatrix();
   }
 }
