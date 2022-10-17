@@ -1,5 +1,7 @@
 PImage img;
 float xp,yp;
+Crab c;
+  PGraphics pg;
 
 void setup(){
 size(1600,900);
@@ -7,9 +9,12 @@ size(1600,900);
 img=loadImage("bg.png");
 xp=0;
 yp=0;
+c = new Crab();
+pg = createGraphics(1600, 900);
 }
 
 void draw(){
+  c.drawAnimal();
   img.loadPixels();
   loadPixels();
 
@@ -24,7 +29,7 @@ void draw(){
 
       float distance = dist(x, y, mouseX, mouseY);
 
-      float adjustBrightness = map(distance, 0, 200, 1, 0);
+      float adjustBrightness = map(distance, 0, 250, 1, 0);
 
       r *= adjustBrightness;
       g *= adjustBrightness;
