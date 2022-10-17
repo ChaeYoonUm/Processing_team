@@ -1,26 +1,30 @@
-// test code
-Map m;
-Mae mae;
-void setup() {
-  size(1600, 900);
-  m = new Map();
-  m.addBoundaryVertex(0, 0);
-  m.addBoundaryVertex(100, 100);
+PImage img;
+float x,y;
 
-  mae = new Mae(width/2, height/2);
+void setup(){
+size(1600,900);
+img=loadImage("bg.png");
+x=0;
+y=0;
 }
 
-void draw() {
-  background(255);
-  stroke(0);
-  m.drawBoundary();
-
-  mae.drawAnimal();
+void draw(){
+ image(img,-x,-y); 
+ println(x,y);
 }
 
-
-void mouseClicked() {
-  if(m.isMouseOn(mouseX, mouseY)) {
-    println("Test");
+void keyPressed(){
+  if(key==CODED){
+    if(keyCode==UP){
+     y-=200; 
+    }else if(keyCode==DOWN){
+     y+=200; 
+    }else if(keyCode==LEFT){
+     x-=200; 
+    }else if(keyCode==RIGHT){
+     x+=200; 
+    }
   }
+   x=constrain(x,0,8000);
+ y=constrain(y,0,4500);
 }
