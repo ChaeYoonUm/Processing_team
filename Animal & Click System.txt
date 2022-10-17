@@ -1,0 +1,93 @@
+변동 사항이 있을 때마다 설명서 업데이트 예정(?)
+이용규가 만든 Animal 클래스와 클릭 시스템 사용 설명서.
+
+----------------
+Animal 생성 규칙
+----------------
+
+모든 동물 클래스는 Animal 클래스를 상속한다.
+따라서 Animal 클래스 안에 있는 position과 rotation은 별도로 구현할 필요가 없다.
+Animal 클래스 안에 있는 변수를 사용한다.
+
+position 변수는 위치를 나타낸다.
+이는 Position이라는 클래스의 변수를 사용했는데, 그냥 안에 x, y를 묶어놓은 내가 만든 클래스(Position.pde에 정의)이다.
+
+여기까지 설명 예시.
+Crab c1 = new Crab(); // 게 오브젝트를 생성. (아직 그리지는 않았음)
+c1.position = new Position(3, 4); // 게의 위치를 3, 4로 설정.
+c1.position.x = 5; // 게의 x좌표 위치를 5로 설정. 즉 (5, 4)에 위치.
+c1.rotation = 1; // 게의 rotation을 1로 설정.
+
+위처럼 변수를 따로 정의하기 귀찮을까봐 생성자(Constructor)도 여러 개 만들었다.
+
+예시.
+Crab c1 = new Crab(); // 게 오브젝트 생성. position은 (0, 0), rotation은 0으로 설정.
+Crab c2 = new Crab(3, 4); // 게 오브젝트 생성. position은 (3, 4), rotation은 0으로 설정.
+Crab c3 = new Crab(3, 4, 1); // 게 오브젝트 생성. position은 (3, 4), rotation은 1로 설정.
+
+----------------
+Animal 사용
+----------------
+
+모든 동물 그리기 함수는 drawAnimal()에서 시작한다. 이후의 세분화(drawArm, drawBody 등...)는 각자의 몫.
+모든 동물 움직임 함수는 move()에서 시작한다.
+
+
+----------------
+Animal 클릭 인식
+----------------
+
+아직 제작중이긴 한데... 일단 사용법은 정해놔서 미리 적습니당.
+
+클릭은 Animal과 UI에 따라 사용법이 달라진다.
+
+Animal은 동물 이미지 주위에 다각형을 그려 그 안에서 클릭했는지 아닌지를 판단하는 방식으로 작동한다.
+동물 클래스에 상속된 Animal 클래스에 상속된 AnimalClickable 클래스에 2가지 함수가 정의되어 있는데,
+
+우선 addBoundaryVertex(int boundary_x, int boundary_y)라는 함수는 동물 이미지 주위에 설정할 다각형 점을 추가하는 함수이다.
+isMouseOn(int mouse_x, int mouse_y)는 마우스 위치가 다각형 위에 있는지 판단하는 함수이다.
+
+예시를 보면 이해가 잘 될지도..
+Crab c1 = new Crab(); // 게를 position = (0, 0), rotation = 0으로 생성.
+c1.addBoundaryVertex(-1, -1); // 게 주위를 사각형으로 둘러쌈.
+c1.addBoundaryVertex(1, -1);  // 이 때에 주의사항은 점을 실제 그리는 순서대로 추가해야 함.
+c1.addBoundaryVertex(1, 1);
+c1.addBoundaryVertex(-1, 1);
+
+...
+
+void mouseClicked() {
+	if(c1.isMouseOn(mouseX, mouseY)) {
+		// 클릭 성공
+	}
+}
+
+이런 구조로 작동하려고 함.
+
+
+
+----------------
+UI 클릭 인식
+----------------
+
+UI는 조금 더 단순하다. 클래스는 UIClickable.pde에 정의되어 있다.
+좌측상단 점과 우측하단 점 두개를 가지고 직사각형 영역은 판단해 마우스가 올라가 있는지 체크한다.
+함수명과 인자는 Animal과 동일하다.
+
+예시는...
+AnimalList al = new AnimalList(); // AnimalList가 대충 있다고 하자. 아직 안 만들었지만.
+al.addBoundaryVertex(-1, -1); // 최초 실행은 좌측상단 점을 추가한다.
+al.addBoundaryVertex(1, 1);   // 두 번쨰 실행은 우측하단 점을 추가한다.
+
+...
+
+void mouseClicked() {
+	if(al.isMouseOn()) {
+		// 클릭 성공
+	}
+}
+
+
+cf.
+addBoundaryVertex로 그린 영역은 drawBoundary() 함수로 확인 가능하다.
+현재는 UI만 가능. Animal은 추가 예정.
