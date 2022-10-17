@@ -2,7 +2,6 @@ PImage img;
 float xp,yp;
 float minBrightness;
 Crab c;
-  PGraphics pg;
 
 void setup(){
 size(1600,900);
@@ -11,12 +10,10 @@ img=loadImage("bg.png");
 xp=0;
 yp=0;
 minBrightness=0;
-c = new Crab();
-pg = createGraphics(1600, 900);
+c = new Crab(100, 100);
 }
 
 void draw(){
-  c.drawAnimal();
   img.loadPixels();
   loadPixels();
 
@@ -25,9 +22,24 @@ void draw(){
       int locBG = (int)xp + x + ((int)yp + y) * img.width;
       int loc = x + y * width;
 
-      float r = red(img.pixels[locBG]);
-      float g = green(img.pixels[locBG]);
-      float b = blue(img.pixels[locBG]);
+      pixels[loc] = img.pixels[locBG];
+    }
+  }
+
+  updatePixels();
+
+
+  c.drawAnimal();
+  loadPixels();
+
+
+  for(int y = 0; y < height; y++) {
+    for(int x = 0; x < width; x++) {
+      int loc = x + y * width;
+
+      float r = red(pixels[loc]);
+      float g = green(pixels[loc]);
+      float b = blue(pixels[loc]);
 
       float distance = dist(x, y, mouseX, mouseY);
 
