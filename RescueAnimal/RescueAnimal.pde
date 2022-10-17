@@ -1,5 +1,6 @@
 PImage img;
 float xp,yp;
+float minBrightness;
 
 void setup(){
 size(1600,900);
@@ -7,6 +8,7 @@ size(1600,900);
 img=loadImage("bg.png");
 xp=0;
 yp=0;
+minBrightness=0;
 }
 
 void draw(){
@@ -24,7 +26,7 @@ void draw(){
 
       float distance = dist(x, y, mouseX, mouseY);
 
-      float adjustBrightness = map(distance, 0, 200, 1, 0);
+      float adjustBrightness = map(distance, 0, 250, 1, minBrightness);
 
       r *= adjustBrightness;
       g *= adjustBrightness;
@@ -55,4 +57,12 @@ void keyPressed(){
   }
    xp=constrain(xp,0,8000);
  yp=constrain(yp,0,4500);
+}
+
+void mousePressed() {
+  // if(value == 0) {
+    minBrightness += 1/8f;
+    minBrightness = constrain(minBrightness, 0, 1);
+    println(minBrightness);
+  // }
 }
