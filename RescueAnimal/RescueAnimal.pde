@@ -4,6 +4,7 @@ Crab c;
 Noru no;
 Namsengi na;
 Durumi d;
+Mae m;
   PGraphics pg;
 
 void setup(){
@@ -16,6 +17,7 @@ c = new Crab();
 no = new Noru();
 na = new Namsengi();
 d = new Durumi();
+m = new Mae();
 pg = createGraphics(1600, 900);
 }
 
@@ -24,6 +26,7 @@ void draw(){
   no.drawAnimal();
   na.drawAnimal();
   d.drawAnimal();
+  m.drawAnimal();
   img.loadPixels();
   loadPixels();
 
