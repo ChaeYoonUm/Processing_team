@@ -1,6 +1,8 @@
 PImage img;
 float xp,yp;
 float minBrightness;
+Crab c;
+  PGraphics pg;
 
 void setup(){
 size(1600,900);
@@ -9,9 +11,12 @@ img=loadImage("bg.png");
 xp=0;
 yp=0;
 minBrightness=0;
+c = new Crab();
+pg = createGraphics(1600, 900);
 }
 
 void draw(){
+  c.drawAnimal();
   img.loadPixels();
   loadPixels();
 
