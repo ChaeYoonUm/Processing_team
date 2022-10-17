@@ -3,6 +3,7 @@ float xp,yp;
 Crab c;
 Noru no;
 Namsengi na;
+Durumi d;
   PGraphics pg;
 
 void setup(){
@@ -14,6 +15,7 @@ yp=0;
 c = new Crab();
 no = new Noru();
 na = new Namsengi();
+d = new Durumi();
 pg = createGraphics(1600, 900);
 }
 
@@ -21,6 +23,7 @@ void draw(){
   c.drawAnimal();
   no.drawAnimal();
   na.drawAnimal();
+  d.drawAnimal();
   img.loadPixels();
   loadPixels();
 
