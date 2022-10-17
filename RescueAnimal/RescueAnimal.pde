@@ -1,7 +1,8 @@
 PImage img;
 float xp,yp;
 Crab c;
-Noru n;
+Noru no;
+Namsengi na;
   PGraphics pg;
 
 void setup(){
@@ -11,13 +12,15 @@ img=loadImage("bg.png");
 xp=0;
 yp=0;
 c = new Crab();
-n = new Noru();
+no = new Noru();
+na = new Namsengi();
 pg = createGraphics(1600, 900);
 }
 
 void draw(){
   c.drawAnimal();
-  n.drawAnimal();
+  no.drawAnimal();
+  na.drawAnimal();
   img.loadPixels();
   loadPixels();
 
