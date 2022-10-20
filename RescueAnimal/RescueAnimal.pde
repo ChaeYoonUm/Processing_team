@@ -6,6 +6,7 @@ float minBrightness;
 static final int BACKGROUND_WIDTH = 9600;
 static final int BACKGROUND_HEIGHT = 5400;
 
+//여기에 냅다 생성
 animalList animallist = new animalList();
 
 
