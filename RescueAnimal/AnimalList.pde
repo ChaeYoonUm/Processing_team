@@ -509,17 +509,17 @@ void AL_draw() {
 
 if(al1==true){
   if(col[4]==false)
-    firAniImg=QM1;
+      firAniImg=QM1;
     else if(col[4]==true)
-    firAniImg=nam_button;
+      firAniImg=nam_button;
 
     if(col[7] == false)
        secAniImg=QM2;
       else if(col[7] == true)
-      secAniImg=frog_button;
+        secAniImg=frog_button;
 
   if(Q1size==true){
-    pushMatrix();
+    pushMatrix();//남생이
       translate(450, 450);
       scale(0.65);
       if(col[4] == false){
@@ -535,21 +535,19 @@ if(col[4]==true){
       scale(0.9);
       image(NamD, 0, 0);
       popMatrix();
-}
+    }
   }
   else if(Q2size==true){
-    if(al1 == true) {
+    if(al1 == true) {//개구리
       pushMatrix();
       translate(450, 450);
       scale(0.65);
-      if(col[7] == false){
-      image(Frog, 250, -80);
-      }
-      else if(col[7] == true){
-      image(FrogF, 250, -80);
-      }
+      if(col[7] == false)
+        image(Frog, 250, -80);
+      else if(col[7] == true)
+        image(FrogF, 250, -80);
       popMatrix();
-
+    }
 if(col[7]==true){
       pushMatrix();
       translate(1225, 450);
@@ -562,80 +560,73 @@ if(col[7]==true){
 else if(al2==true){
   if(col[5] == false)
      firAniImg=QM1;
-     else if(col[5] == true)
+  else if(col[5] == true)
      firAniImg=noru_button;
 
-     if(col[6] == false)
+  if(col[6] == false)
      secAniImg=QM2;
-     else if(col[6] == true)
+  else if(col[6] == true)
      secAniImg=sak_button;
 
-     if(Q1size==true){
-       pushMatrix();
+  if(Q1size==true){
+      pushMatrix();//노루
       translate(450, 450);
       scale(0.65);
-      if(col[5] == false){
-      image(Noru, 200, -80);
-      }
-      else if(col[5] == true){
-      image(NoruF, 200, -80);
-      }
+      if(col[5] == false)
+        image(Noru, 200, -80);
+      else if(col[5] == true)
+        image(NoruF, 200, -80);
       popMatrix();
 
-if(col[5]==true){
-      pushMatrix();
-      translate(1225, 450);
-      scale(0.9);
-      image(NoruD, 0, 0);
-      popMatrix();
+      if(col[5]==true){
+        pushMatrix();
+        translate(1225, 450);
+        scale(0.9);
+        image(NoruD, 0, 0);
+        popMatrix();
     }
-    }
-     }
-     else if(Q2size==true){
-       pushMatrix();
+  }
+  else if(Q2size==true){
+      pushMatrix();//삵
       translate(450, 450);
       scale(0.65);
-      if(col[6] == false){
-      image(Sak, 250, -80);
-      }
-      else if(col[6] == true){
-      image(SakF, 250, -80);
-      }
+      if(col[6] == false)
+        image(Sak, 250, -80);
+      else if(col[6] == true)
+        image(SakF, 250, -80);
       popMatrix();
 
-if(col[6]==true){
-      pushMatrix();
-      translate(1225, 450);
-      scale(0.9);
-      image(SakD, 0, 0);
-      popMatrix();
-}
-     }
+      if(col[6]==true){
+        pushMatrix();
+        translate(1225, 450);
+        scale(0.9);
+        image(SakD, 0, 0);
+        popMatrix();
+      }
+   }
 }
 else if(al3==true){
   if(col[0] == false)
      firAniImg=QM1;
-     else if(col[0] == true)
+  else if(col[0] == true)
      firAniImg=gasi_button;
 
-     if(col[2] == false)
+  if(col[2] == false)
      secAniImg=QM2;
-     else if(col[2] == true)
+  else if(col[2] == true)
      secAniImg=gasi_button;
 
- if(Q1size==true){
-   pushMatrix();
+  if(Q1size==true){
+     pushMatrix();
       translate(450, 450);
       scale(1.3);
-      if(col[0] == false){
-      image(Gae, 125, -50);
-      }
-      else if(col[0] == true){
-      image(GaeF, 125, -50);
-      }
+      if(col[0] == false)
+        image(Gae, 125, -50);
+      else if(col[0] == true)
+        image(GaeF, 125, -50);
       popMatrix();
 
-if(col[0]==true){
+  if(col[0]==true){
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -644,18 +635,16 @@ if(col[0]==true){
     }
  }
  else if(Q2size==true){
-         pushMatrix();
+      pushMatrix();
       translate(450, 450);
       scale(0.26);
-      if(col[2] == false){
-      image(Gasi, 650, 20);
-      }
-      else if(col[2] == true){
-      image(GasiF, 650, 20);
-      }
+      if(col[2] == false)
+        image(Gasi, 650, 20);
+      else if(col[2] == true)
+        image(GasiF, 650, 20);
       popMatrix();
 
-if(col[2]==true){
+      if(col[2]==true){
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -667,24 +656,22 @@ if(col[2]==true){
 else if(al4==true){
  if(col[1] == false)
      firAniImg=QM1;
-      else if(col[1] == true)
-      firAniImg=duru_button;
+ else if(col[1] == true)
+     firAniImg=duru_button;
 
-      if(col[3] == false)
+   if(col[3] == false)
       secAniImg=QM2;
-       else if(col[3] == true)
-         secAniImg=mae_button;
+   else if(col[3] == true)
+      secAniImg=mae_button;
 
   if(Q1size==true){
-          pushMatrix();
+      pushMatrix();
       translate(450, 450);
       scale(0.455);
-      if(col[1] == false){
-      image(Doromi, 340, -80);
-      }
-      else if(col[1] == true){
-      image(DoromiF, 340, -80);
-      }
+      if(col[1] == false)
+        image(Doromi, 340, -80);
+      else if(col[1] == true)
+        image(DoromiF, 340, -80);
       popMatrix();
 
 if(col[1]==true){
@@ -695,17 +682,14 @@ if(col[1]==true){
       popMatrix();
     }
     }
-  }
   else if(Q2size==true){
      pushMatrix();
       translate(450, 450);
       scale(0.65);
-      if(col[3] == false){
-      image(Mea, 200, -80);
-      }
-      else if(col[3] == true){
-      image(MeaF, 200, -80);
-      }
+      if(col[3] == false)
+        image(Mea, 200, -80);
+      else if(col[3] == true)
+        image(MeaF, 200, -80);
       popMatrix();
 
 if(col[3]==true){
@@ -716,107 +700,8 @@ if(col[3]==true){
       popMatrix();
     }
   }
+}
  }
-
-else if(Tada == false) {
-  pushMatrix();
-  translate(1460, 450);
-   scale(1);
-   noTint();
-   image(iB, 0, 0);
-   popMatrix();
-
-   if(Q1size == true) {
-     if(al1 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(1);
-      if(Namf == false)
-      image(Nam, 300, 0);
-      else if(Namf == true)
-      image(NamF, 300, 0);
-      popMatrix();
-    }
-    else if(al2 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(1);
-      if(col[5] == false)
-      image(Noru, 200, 0);
-
-      else if(col[5] == true){
-      image(NoruF, 200, 0);
-      popMatrix();
-      firAniImg=noru_button;
-      }
-    }
-    else if(al3 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(2);
-      if(col[0] == false)
-      image(Gae, 125, 0);
-      else if(col[0] == true)
-      image(GaeF, 125, 0);
-      popMatrix();
-    }
-    else if(al4 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(0.7);
-      if(col[1] == false)
-      image(Doromi, 370, 0);
-      else if(col[1] == true)
-      image(DoromiF, 370, 0);
-      popMatrix();
-    }
-  }
-
-  if(Q2size == true) {
-    if(al1 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(1);
-      if(Frogf == false)
-      image(Frog, 250, 0);
-      else if(Frogf == true)
-      image(FrogF, 250, 0);
-      popMatrix();
-    }
-     else if(al2 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(1);
-      if(col[6] == false)
-      image(Sak, 250, 0);
-      else if(col[6] == true)
-      image(SakF, 250, 0);
-      popMatrix();
-    }
-    else if(al3 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(0.4);
-      if(Gasif == false)
-      image(Gasi, 650, 100);
-      else if(col[2] == true)
-      image(GasiF, 650, 100);
-      popMatrix();
-    }
-    else if(al4 == true) {
-      pushMatrix();
-      translate(550, 400);
-      scale(1);
-      if(col[3] == false)
-      image(Mea, 200, 0);
-      else if(col[3] == true)
-      image(MeaF, 200, 0);
-      popMatrix();
-    }
-  }
- }
-
-
 
  if(Freee == true) { //게임 조작 이용 방법 ? 버튼
     pushMatrix();
