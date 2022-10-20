@@ -21,7 +21,7 @@ class GasiFish extends Animal {
   }
   GasiFish(float x, float y, float rotation) {
     super(x, y, rotation);
-    gasi = loadImage("gasi.png");
+    gasi = loadImage("gasiF.png");
 
   }
 
