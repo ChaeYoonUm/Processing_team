@@ -163,20 +163,18 @@ class Epilogue {
       delay(1000);
     }
     if(pg_y > MAX_PG_Y) {
-<<<<<<< Updated upstream
-=======
       backgroundPicDestination.loadPixels();
       for(int y = 0; y < height; y++) {
         for(int x = 0; x < width; x++) {
           int loc = x + y * width;
-          float r = red(backgroundPicDestination.pixels[loc]) * 0.2;
-          float g = green(backgroundPicDestination.pixels[loc]) * 0.2;
-          float b = blue(backgroundPicDestination.pixels[loc]) * 0.2;
+          float r = red(backgroundPicDestination.pixels[loc]) * 0.95;
+          float g = green(backgroundPicDestination.pixels[loc]) * 0.95;
+          float b = blue(backgroundPicDestination.pixels[loc]) * 0.95;
 
           backgroundPicDestination.pixels[loc] = color(r, g, b);
         }
       }
->>>>>>> Stashed changes
+      backgroundPicDestination.updatePixels();
       image(backgroundPicDestination, 0, 0);
       image(pg_Monologue, 0, pg_y);
       pg_y -= pg_y_speed;
@@ -189,11 +187,7 @@ class Epilogue {
 
   // for condition 4
   void devastated() {
-<<<<<<< Updated upstream
-    
-=======
 
->>>>>>> Stashed changes
   }
 
   // for condition
