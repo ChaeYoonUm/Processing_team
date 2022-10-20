@@ -24,7 +24,7 @@ if(testWithoutDark) minBrightness = 1;
   // Animals.
   animals = new Animal[ANIMAL_LENGTH];
   animals[0] = new Crab(600, 1080);
-  animals[1] = new Durumi(4700, 1800);
+  animals[1] = new Durumi(4500, 2000);
   animals[2] = new GasiFish(9000, 5000);
   animals[3] = new Mae(7200, 300);
   animals[4] = new Namsengi(5400, 3600);

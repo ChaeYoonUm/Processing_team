@@ -35,6 +35,7 @@ class Durumi extends Animal {
     // body
     pushMatrix();
     translate(position.x, position.y);
+    scale(0.5);
     image(body,0,0);
 
     // head
