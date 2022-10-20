@@ -1,11 +1,13 @@
 // GasiFish.pde
 // Written by Yang Eun Seo.
-PImage gasi;
-float tx = 0.0, ty = 0.0;
-float noiseValueX, noiseValueY;
-
 class GasiFish extends Animal {
+  ///////////////
+  // variables //
+  ///////////////
 
+  PImage gasi;
+  float tx = 0.0, ty = 0.0;
+  float noiseValueX, noiseValueY;
 
   //////////////////
   // constructors //
@@ -15,12 +17,12 @@ class GasiFish extends Animal {
     this(0, 0, 0);
   }
   GasiFish(float x, float y) {
-    this(0, 0, 0);
+    this(x, y, 0);
   }
   GasiFish(float x, float y, float rotation) {
     super(x, y, rotation);
     gasi = loadImage("gasi.png");
-    
+
   }
 
 
@@ -30,23 +32,26 @@ class GasiFish extends Animal {
 
   // Draw Animal.
   void drawAnimal() {
-      imageMode(CENTER);
+    imageMode(CENTER);
 
-      pushMatrix();
-      translate(position.x, position.y);
-      scale(0.2);
-      noiseValueX = noise(tx);
-      tx += 0.03;
-      noiseValueY = noise(ty);
-      ty += 0.02;
-      image(gasi,noiseValueX * 500,noiseValueY*500);
-      //println(noiseValueX);
+    pushMatrix();
+    move();
+    translate(position.x, position.y);
+    scale(0.2);
+    image(gasi,0,0);
+    popMatrix();
 
-  popMatrix();
+    println("Gasi: " + position.x + " " + position.y);
   }
 
   // Modify some body parts to describe movement of an animal.
   void move() {
-
+    noiseValueX = noise(tx) * 2;
+    tx += 0.03;
+    noiseValueY = noise(ty) * 2;
+    ty += 0.02;
+    position.x = constrain(position.x + noiseValueX, BACKGROUND_WIDTH-1200, BACKGROUND_WIDTH-200);
+    position.y = constrain(position.y + noiseValueY, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
+    setPosition(position.x, position.y);
   }
 }

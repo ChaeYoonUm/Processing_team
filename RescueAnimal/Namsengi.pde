@@ -12,7 +12,7 @@ class Namsengi extends Animal {
     this(0, 0, 0);
   }
   Namsengi(float x, float y) {
-    this(x, y, -);
+    this(x, y, 0);
   }
   Namsengi(float x, float y, float rotation) {
     super(x, y, rotation);

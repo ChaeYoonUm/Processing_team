@@ -3,6 +3,8 @@
 PImage background;
 float backgroundX,backgroundY;
 float minBrightness;
+static final int BACKGROUND_WIDTH = 9600;
+static final int BACKGROUND_HEIGHT = 5400;
 
 
 // Animals.
@@ -21,8 +23,10 @@ void setup(){
   animals = new Animal[ANIMAL_LENGTH];
   animals[0] = new Crab(600, 1080);
   animals[1] = new Durumi(4700, 1800);
-  animals[2] = new GasiFish(9000, 500);
+  // animals[2] = new GasiFish(9000, 5000);
+  animals[2] = new GasiFish(9000, 5000);
   animals[3] = new Mae(800, 5000);
+  // animals[3] = new Mae(9000, 5000);
   animals[4] = new Namsengi(5400, 3600);
   animals[5] = new Noru(9000, 400);
   animals[6] = new Sak(6400, 1600);
@@ -34,6 +38,12 @@ void setup(){
   animals[0].addBoundaryVertex(-50, 50);
   animals[0].addBoundaryVertex(50, 50);
   animals[0].addBoundaryVertex(50, -50);
+
+
+  animals[2].addBoundaryVertex(-50, -50);
+  animals[2].addBoundaryVertex(-50, 50);
+  animals[2].addBoundaryVertex(50, 50);
+  animals[2].addBoundaryVertex(50, -50);
 }
 
 void draw(){
@@ -60,7 +70,10 @@ void draw(){
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     animals[i].drawAnimal();
   }
-  animals[0].showBoundary();
+  // animals[0].drawAnimal();
+  // animals[2].drawAnimal();
+
+  animals[2].showBoundary();
   popMatrix();
   loadPixels();
 
