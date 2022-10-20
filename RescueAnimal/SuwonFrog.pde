@@ -8,10 +8,10 @@ class SuwonFrog extends Animal {
   //////////////////
 
   SuwonFrog() {
-    super();
+    this(0, 0, 0);
   }
   SuwonFrog(float x, float y) {
-    super(x, y);
+    this(x, y, 0);
   }
   SuwonFrog(float x, float y, float rotation) {
     super(x, y, rotation);

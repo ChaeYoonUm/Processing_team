@@ -5,21 +5,21 @@ float tx = 0.0, ty = 0.0;
 float noiseValueX, noiseValueY;
 
 class GasiFish extends Animal {
-  
-  
+
+
   //////////////////
   // constructors //
   //////////////////
 
   GasiFish() {
-    super();
-    gasi = loadImage("gasi.png");
+    this(0, 0, 0);
   }
   GasiFish(float x, float y) {
-    super(x, y);
+    this(0, 0, 0);
   }
   GasiFish(float x, float y, float rotation) {
     super(x, y, rotation);
+    gasi = loadImage("gasi.png");
     
   }
 
@@ -31,7 +31,7 @@ class GasiFish extends Animal {
   // Draw Animal.
   void drawAnimal() {
       imageMode(CENTER);
-  
+
       pushMatrix();
       translate(position.x, position.y);
       scale(0.2);
@@ -41,7 +41,7 @@ class GasiFish extends Animal {
       ty += 0.02;
       image(gasi,noiseValueX * 500,noiseValueY*500);
       //println(noiseValueX);
-  
+
   popMatrix();
   }
 

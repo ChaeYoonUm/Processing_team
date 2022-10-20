@@ -8,10 +8,10 @@ class Mae extends Animal {
   //////////////////
 
   Mae() {
-    super();
+    this(0, 0, 0);
   }
   Mae(float x, float y) {
-    super(x, y);
+    this(x, y, 0)
   }
   Mae(float x, float y, float rotation) {
     super(x, y, rotation);
