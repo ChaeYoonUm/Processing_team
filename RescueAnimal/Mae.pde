@@ -31,27 +31,29 @@ class Mae extends Animal {
   // Draw Animal.
   void drawAnimal() {
     imageMode(CENTER);
-    
+
     // body
     pushMatrix();
+    move();
     translate(position.x, position.y);
     scale(0.2);
-    position.x=noise(xtime)*width;
-    position.y=noise(ytime)*height;
-    
-    xtime+=incr;
-    ytime+=incr;
-    
-    position.x=constrain(position.x,176,width);
-    position.y=constrain(position.y,135,height);
     image(body,0,0);
-    
-    
+
+
     popMatrix();
   }
 
   // Modify some body parts to describe movement of an animal.
   void move() {
+    // position.x=noise(xtime)*width;
+    // position.y=noise(ytime)*height;
+    position.x=map(noise(xtime), 0, 1, 6800, BACKGROUND_WIDTH-200);
+    position.y=map(noise(ytime), 0, 1, 2800, 3200);
 
+    xtime+=incr;
+    ytime+=incr;
+
+    position.x=constrain(position.x, 6800, BACKGROUND_WIDTH-200);
+    position.y=constrain(position.y, 2800, 3200);
   }
 }

@@ -23,12 +23,10 @@ void setup(){
   animals = new Animal[ANIMAL_LENGTH];
   animals[0] = new Crab(600, 1080);
   animals[1] = new Durumi(4700, 1800);
-  // animals[2] = new GasiFish(9000, 5000);
   animals[2] = new GasiFish(9000, 5000);
-  animals[3] = new Mae(800, 5000);
-  // animals[3] = new Mae(9000, 5000);
+  animals[3] = new Mae(7200, 300);
   animals[4] = new Namsengi(5400, 3600);
-  animals[5] = new Noru(9000, 400);
+  animals[5] = new Noru(9000, 1100);
   animals[6] = new Sak(6400, 1600);
   animals[7] = new SuwonFrog(2200, 600);
 
@@ -39,11 +37,23 @@ void setup(){
   animals[0].addBoundaryVertex(50, 50);
   animals[0].addBoundaryVertex(50, -50);
 
+  // Durumi
+  animals[1].addBoundaryVertex(-50, -50);
+  animals[1].addBoundaryVertex(-50, 50);
+  animals[1].addBoundaryVertex(50, 50);
+  animals[1].addBoundaryVertex(50, -50);
 
+  // GasiFish
   animals[2].addBoundaryVertex(-50, -50);
   animals[2].addBoundaryVertex(-50, 50);
   animals[2].addBoundaryVertex(50, 50);
   animals[2].addBoundaryVertex(50, -50);
+
+  // Mae
+  animals[3].addBoundaryVertex(-100, -50);
+  animals[3].addBoundaryVertex(-100, 50);
+  animals[3].addBoundaryVertex(100, 50);
+  animals[3].addBoundaryVertex(100, -50);
 }
 
 void draw(){
@@ -73,13 +83,13 @@ void draw(){
   // animals[0].drawAnimal();
   // animals[2].drawAnimal();
 
-  // animals[2].showBoundary();
+  // animals[3].showBoundary();
   popMatrix();
   loadPixels();
 
   // Flashlight.
   if(minBrightness > 0.99) return;
-  
+
   for(int y = 0; y < height; y++) {
     for(int x = 0; x < width; x++) {
       int loc = x + y * width;
@@ -133,5 +143,5 @@ void mousePressed() {
       minBrightness = constrain(minBrightness, 0, 1);
   //   }
   // }
-  println(animals[0].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+  println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 }
