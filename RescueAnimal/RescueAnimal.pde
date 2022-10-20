@@ -105,7 +105,7 @@ void draw(){
   translate(-backgroundX, -backgroundY);
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     animals[i].drawAnimal();
-    animals[i].showBoundary();
+    // animals[i].showBoundary();
   }
 
   popMatrix();

@@ -3,10 +3,10 @@
 
 class Namsengi extends Animal {
   PImage body,head;
-  float x,y;
+  float x;
 
-  float ri=0.2;
-  float incr = 0.001;
+  float ri=0.7;
+  float incr = 0.01;
   float theta=0;
 
   //////////////////
@@ -32,7 +32,7 @@ class Namsengi extends Animal {
   // Draw Animal.
   void drawAnimal() {
     imageMode(CENTER);
-    
+
     // body
     pushMatrix();
     translate(position.x, position.y);
@@ -40,18 +40,11 @@ class Namsengi extends Animal {
     // head
     pushMatrix();
     x=ri*cos(theta)+x;
-    translate(x, y);
-
+    translate(x + 100, 0);
     image(head,0,0);
-    
     theta+=incr;
-    
     popMatrix();
-    
-    popMatrix();
-    
-    pushMatrix();
-    translate(position.x, position.y);
+
     image(body,0,0);
     popMatrix();
   }
