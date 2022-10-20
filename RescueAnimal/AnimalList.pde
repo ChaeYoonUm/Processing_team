@@ -1,5 +1,6 @@
-class animalList {
-  PImage QM1, QM2, iB,iP, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
+class animalList{
+
+PImage QM1, QM2, iB,iP, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
 PImage NoruF, GaeF, NamF, FrogF, GasiF, MeaF, DoromiF, SakF;
 PImage NoruD, GaeD, NamD, FrogD, GasiD, MeaD, DoromiD, SakD;
 
@@ -15,15 +16,25 @@ boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들�
 boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 큰 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
 boolean Freee = true; // 왼쪽 위 ? 모양 (시작할 때 사용설명서 띄우기)
 
+boolean[] col;
+
 boolean Noruf, Gaef, Namf, Frogf, Gasif, Meaf, Doromif, Sakf = false; //색깔 동물
 
-void AL_mousePressed1() {
-  Tada = true;  Bsize = true;
-}
-void AL_mousePressed2() {
-  Tada = false;  Bsize = false;
-}
-void AL_mousePressed3() {
+// Background Capture
+PImage backgroundCapture;
+
+void AL_mousePressed() {
+  if(1428<mouseX&&mouseX<1492) {
+    if(394<mouseY&&mouseY<506) {
+      Tada = true;  Bsize = true;
+    }
+  }
+  if(918<mouseX&&mouseX<983) {
+    if(394<mouseY&&mouseY<506)
+    Tada = false;  Bsize = false;
+  }
+  if(25<mouseX&&mouseX<75) {
+    if(25<mouseY&&mouseY<75) {
       if(Freee == false)
       Freee = true;
       else if(Freee == true)
@@ -63,7 +74,6 @@ void al4() {
 }
 
 void AL_setup() {
-  size(1600, 900);
   QM1 = loadImage("QuestionMark1.png");
   QM2 = loadImage("QuestionMark2.png");
   iB = loadImage("instructionB.png");
@@ -104,10 +114,20 @@ void AL_setup() {
   MeaD = loadImage("meaD.png");
   DoromiD = loadImage("doromiD.png");
   SakD = loadImage("sakD.png");
+  col = new boolean[8];
+}
+
+void AL_drawQ(){
+  pushMatrix();
+  translate(50, 50);
+  scale(0.1);
+  noTint();
+  image(Free, 0, 0);
+  popMatrix();
 }
 
 void AL_draw() {
-  background(127);
+
   imageMode(CENTER);
   image(Ww, width/2, height/2);
   image(iP, 1, 1);
@@ -324,9 +344,9 @@ void AL_draw() {
       pushMatrix();
       translate(450, 450);
       scale(0.65);
-      if(Namf == false)
+      if(col[4] == false)
       image(Nam, 300, -80);
-      else if(Namf == true)
+      else if(col[4] == true)
       image(NamF, 300, -80);
       popMatrix();
 
@@ -381,9 +401,9 @@ void AL_draw() {
       pushMatrix();
       translate(450, 450);
       scale(0.65);
-      if(Frogf == false)
+      if(col[7] == false)
       image(Frog, 250, -80);
-      else if(Frogf == true)
+      else if(col[7] == true)
       image(FrogF, 250, -80);
       popMatrix();
 
@@ -467,9 +487,9 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(1);
-      if(Noruf == false)
+      if(col[5] == false)
       image(Noru, 200, 0);
-      else if(Noruf == true)
+      else if(col[5] == true)
       image(NoruF, 200, 0);
       popMatrix();
     }
@@ -477,9 +497,9 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(2);
-      if(Gaef == false)
+      if(col[0] == false)
       image(Gae, 125, 0);
-      else if(Gaef == true)
+      else if(col[0] == true)
       image(GaeF, 125, 0);
       popMatrix();
     }
@@ -487,9 +507,9 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(0.7);
-      if(Doromif == false)
+      if(col[1] == false)
       image(Doromi, 370, 0);
-      else if(Doromif == true)
+      else if(col[1] == true)
       image(DoromiF, 370, 0);
       popMatrix();
     }
@@ -510,9 +530,9 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(1);
-      if(Sakf == false)
+      if(col[6] == false)
       image(Sak, 250, 0);
-      else if(Sakf == true)
+      else if(col[6] == true)
       image(SakF, 250, 0);
       popMatrix();
     }
@@ -522,7 +542,7 @@ else if(Tada == false) {
       scale(0.4);
       if(Gasif == false)
       image(Gasi, 650, 100);
-      else if(Gasif == true)
+      else if(col[2] == true)
       image(GasiF, 650, 100);
       popMatrix();
     }
@@ -530,9 +550,9 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(1);
-      if(Meaf == false)
+      if(col[3] == false)
       image(Mea, 200, 0);
-      else if(Meaf == true)
+      else if(col[3] == true)
       image(MeaF, 200, 0);
       popMatrix();
     }
