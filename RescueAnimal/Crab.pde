@@ -31,10 +31,11 @@ class Crab extends Animal {
   // Draw Animal.
   void drawAnimal() {
     imageMode(CENTER);
-    
+
     // body
     pushMatrix();
     translate(position.x, position.y);
+    scale(1.5);
     image(body,0,0);
 
     // rh

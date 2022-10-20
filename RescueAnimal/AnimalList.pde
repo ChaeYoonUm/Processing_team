@@ -53,7 +53,7 @@ void AL_keyPressed() {
       }
     }
   }
-  
+
   if(key == '1') {
     if(al1 == false) {
       al1 = true; al2 = false; al3 = false; al4 = false;
@@ -67,7 +67,7 @@ void AL_keyPressed() {
   else if(key == '3') {
     if(al3 == false) {
       al1 = false; al2 = false; al3 = true; al4 = false;
-      }  
+      }
   }
   else if(key == '4') {
     if(al4 == false) {
@@ -126,14 +126,14 @@ void AL_draw() {
   image(Ww, width/2, height/2);
   image(iP, 1, 1);
   image(Rt, 230, 420);
-  
+
   pushMatrix();
   translate(50, 50);
   scale(0.1);
   noTint();
   image(Free, 0, 0);
   popMatrix();
-  
+
   if(Q1size==true) {
     pushMatrix();
     translate(230,320);
@@ -166,16 +166,16 @@ void AL_draw() {
    image(QM2, 0, 0);
    popMatrix();
   }
-  
+
   if(Bsize == false) {
-    
+
     pushMatrix();
     translate(800, 700);
     scale(1);
     noTint();
     image(Bm, 0, 0);
     popMatrix();
-    
+
   if(al1 == true) {
     pushMatrix();
     translate(450, 700);
@@ -197,7 +197,7 @@ void AL_draw() {
     translate(683, 704);
     scale(1);
     noTint();
-    image(Bear, 0, 0); 
+    image(Bear, 0, 0);
     popMatrix();
   }
   else if(al2 == false) {
@@ -240,17 +240,17 @@ void AL_draw() {
     image(Bird, 0, 0);
     popMatrix();
   }
-  
+
   }
   if(Bsize == true) { // 창이 열림
-  
+
   pushMatrix();
   translate(600, 700);
   scale(0.8);
   noTint();
   image(Bm, 0, 0);
   popMatrix();
-    
+
   if(al1 == true) {
     pushMatrix();
     translate(330, 704);
@@ -272,7 +272,7 @@ void AL_draw() {
     translate(513, 704);
     scale(0.64);
     noTint();
-    image(Bear, 0, 0); 
+    image(Bear, 0, 0);
     popMatrix();
   }
   else if(al2 == false) {
@@ -317,7 +317,7 @@ void AL_draw() {
   }
 }
   noTint();
-  
+
  if(Tada == true) { //창 열림
    pushMatrix();
     translate(1230, 450);
@@ -325,14 +325,14 @@ void AL_draw() {
     noTint();
     image(instruction, 0, 0);
     popMatrix();
-   
+
    pushMatrix();
    translate(950, 450);
    scale(1);
    noTint();
    image(iB, 0, 0);
    popMatrix();
-    
+
     if(Q1size == true) {
     if(al1 == true) {
       pushMatrix();
@@ -343,7 +343,7 @@ void AL_draw() {
       else if(Namf == true)
       image(NamF, 300, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -356,7 +356,7 @@ void AL_draw() {
       scale(0.65);
       image(Noru, 200, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -369,7 +369,7 @@ void AL_draw() {
       scale(1.3);
       image(Gae, 125, -50);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -382,7 +382,7 @@ void AL_draw() {
       scale(0.455);
       image(Doromi, 340, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -400,7 +400,7 @@ void AL_draw() {
       else if(Frogf == true)
       image(FrogF, 250, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -416,7 +416,7 @@ void AL_draw() {
       else if(Sakf == true)
       image(SakF, 250, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -432,7 +432,7 @@ void AL_draw() {
       else if(Gasif == true)
       image(GasiF, 650, 20);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -448,7 +448,7 @@ void AL_draw() {
       else if(Meaf == true)
       image(MeaF, 200, -80);
       popMatrix();
-      
+
       pushMatrix();
       translate(1225, 450);
       scale(0.9);
@@ -465,7 +465,7 @@ else if(Tada == false) {
    noTint();
    image(iB, 0, 0);
    popMatrix();
-   
+
    if(Q1size == true) {
      if(al1 == true) {
       pushMatrix();
@@ -508,7 +508,7 @@ else if(Tada == false) {
       popMatrix();
     }
   }
-  
+
   if(Q2size == true) {
     if(al1 == true) {
       pushMatrix();
@@ -544,7 +544,7 @@ else if(Tada == false) {
       pushMatrix();
       translate(550, 400);
       scale(1);
-      if(Meaf == false) 
+      if(Meaf == false)
       image(Mea, 200, 0);
       else if(Meaf == true)
       image(MeaF, 200, 0);
@@ -552,7 +552,7 @@ else if(Tada == false) {
     }
   }
  }
- 
+
  if(Freee == true) { //게임 조작 이용 방법 ? 버튼
     pushMatrix();
   translate(width/2+19, height/2);

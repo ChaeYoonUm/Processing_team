@@ -11,6 +11,7 @@ class AnimalClickable implements IClickable {
 
   ArrayList<Position> polygon = null;
   Position offset;
+  private boolean isClicked;
 
   /////////////
   // methods //
@@ -24,10 +25,13 @@ class AnimalClickable implements IClickable {
   boolean isMouseOn(int mouse_x, int mouse_y) {
     // https://bowbowbow.tistory.com/24
     // use this.
+    if(isClicked) return false;
+
     int cnt = 0;
+    Position backgroundPos = new Position(-backgroundX, -backgroundY);
     for(int i = 0; i < polygon.size(); i++) {
-      Position pos1 = polygon.get(i).add(offset);
-      Position pos2 = polygon.get((i+1) % polygon.size()).add(offset);
+      Position pos1 = polygon.get(i).add(offset).add(backgroundPos);
+      Position pos2 = polygon.get((i+1) % polygon.size()).add(offset).add(backgroundPos);
 
       if((pos2.y < mouse_y) != (pos1.y < mouse_y)) {
         // calculate cross point.
@@ -35,8 +39,9 @@ class AnimalClickable implements IClickable {
         if(atX > mouse_x) cnt++;
       }
     }
-    if(cnt % 2 == 0) return false;
-    else return true;
+    
+    isClicked = cnt % 2 != 0;
+    return isClicked;
   }
 
   void addBoundaryVertex(int boundary_x, int boundary_y) {
@@ -56,5 +61,13 @@ class AnimalClickable implements IClickable {
     }
     endShape(CLOSE);
     popMatrix();
+  }
+
+  void setIsClicked(boolean _isClicked) {
+    isClicked = isClicked;
+  }
+
+  boolean getIsClicked() {
+    return isClicked;
   }
 }
