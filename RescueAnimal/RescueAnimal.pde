@@ -6,6 +6,9 @@ float minBrightness;
 static final int BACKGROUND_WIDTH = 9600;
 static final int BACKGROUND_HEIGHT = 5400;
 
+//여기에 냅다 생성
+animalList animallist = new animalList();
+
 
 // Animals.
 Animal[] animals;
@@ -80,6 +83,8 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(-100, 50);
   animals[7].addBoundaryVertex(100, 50);
   animals[7].addBoundaryVertex(100, -50);
+  
+  animallist.AL_setup();
 }
 
 void draw(){
@@ -139,6 +144,8 @@ void draw(){
   }
 
   updatePixels();
+  
+  animallist.AL_draw();
 }
 
 // Move.
@@ -157,6 +164,27 @@ void keyPressed(){
   backgroundX=constrain(backgroundX,0,8000);
   backgroundY=constrain(backgroundY,0,4500);
   // println(backgroundX + ", " + backgroundY);
+  
+  if(key == CODED) {
+    // f1's ASCII code is 112
+    if(keyCode == 112)
+      animallist.f1();
+  }
+  if(key == CODED) {
+    // f1's ASCII code is 113
+    if(keyCode == 113)
+      animallist.f2();
+  }
+  if(key == '1')
+  animallist.al1();
+  if(key == '2')
+  animallist.al2();
+  if(key == '3')
+  animallist.al3();
+  if(key == '4')
+  animallist.al4();
+  
+  
 }
 
 // Click.
@@ -168,4 +196,17 @@ void mousePressed() {
     }
   }
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+  
+  if(1428<mouseX&&mouseX<1492) {
+    if(394<mouseY&&mouseY<506)
+      animallist.AL_mousePressed1();
+  }
+  if(918<mouseX&&mouseX<983) {
+    if(394<mouseY&&mouseY<506)
+    animallist.AL_mousePressed2();
+  }
+  if(25<mouseX&&mouseX<75) {
+    if(25<mouseY&&mouseY<75) 
+     animallist.AL_mousePressed3();
+  }
 }
