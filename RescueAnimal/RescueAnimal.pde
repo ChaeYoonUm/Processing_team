@@ -24,7 +24,7 @@ void setup(){
  
   
 
-  boolean testWithoutDark = false;
+  boolean testWithoutDark = true;
 if(testWithoutDark) minBrightness = 1;
   // Animals.
   animals = new Animal[ANIMAL_LENGTH];
@@ -94,7 +94,6 @@ void draw(){
   if(AL==true){
     image(AniList.backgroundCapture, 800, 450);
     AniList.AL_draw();
-    println("1");
     return;
   }
   
