@@ -9,7 +9,7 @@ interface IClickable {
   // methods //
   /////////////
 
-  boolean isMouseOn(int mouse_x, int mouse_y);
+  boolean isMouseOn(int mouse_x, int mouse_y, float background_X, float background_Y);
 
   void addBoundaryVertex(int boundary_x, int boundary_y);
 

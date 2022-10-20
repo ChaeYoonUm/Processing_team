@@ -21,13 +21,14 @@ class AnimalClickable implements IClickable {
     offset = _offset;
   }
 
-  boolean isMouseOn(int mouse_x, int mouse_y) {
+  boolean isMouseOn(int mouse_x, int mouse_y, float background_X, float background_Y) {
     // https://bowbowbow.tistory.com/24
     // use this.
     int cnt = 0;
+    Position backgroundPos = new Position(-background_X, -background_Y);
     for(int i = 0; i < polygon.size(); i++) {
-      Position pos1 = polygon.get(i).add(offset);
-      Position pos2 = polygon.get((i+1) % polygon.size()).add(offset);
+      Position pos1 = polygon.get(i).add(offset).add(backgroundPos);
+      Position pos2 = polygon.get((i+1) % polygon.size()).add(offset).add(backgroundPos);
 
       if((pos2.y < mouse_y) != (pos1.y < mouse_y)) {
         // calculate cross point.

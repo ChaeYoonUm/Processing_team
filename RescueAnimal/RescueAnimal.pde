@@ -1,63 +1,122 @@
-PImage img;
-float xp=0,yp =0;
 
+// background variables.
+PImage background;
+float backgroundX,backgroundY;
+float minBrightness;
+
+
+// Animals.
+Animal[] animals;
+static final int ANIMAL_LENGTH = 8;
+
+// setup
 void setup(){
   size(1600,900);
-  img=loadImage("bg.png");
+  background=loadImage("bg.png");
+  backgroundX=0;
+  backgroundY=0;
+  minBrightness=0;
 
+  // Animals.
+  animals = new Animal[ANIMAL_LENGTH];
+  animals[0] = new Crab(600, 1080);
+  animals[1] = new Durumi(4700, 1800);
+  animals[2] = new GasiFish(9000, 500);
+  animals[3] = new Mae(800, 5000);
+  animals[4] = new Namsengi(5400, 3600);
+  animals[5] = new Noru(9000, 400);
+  animals[6] = new Sak(6400, 1600);
+  animals[7] = new SuwonFrog(2200, 600);
+
+  // Vertex boundary for each animal.
+  // Crab
+  animals[0].addBoundaryVertex(-50, -50);
+  animals[0].addBoundaryVertex(-50, 50);
+  animals[0].addBoundaryVertex(50, 50);
+  animals[0].addBoundaryVertex(50, -50);
 }
 
 void draw(){
- image(img,-xp,-yp);
- println(xp,yp);
- // println(img.width);
+  // load pixels
+  background.loadPixels();
+  loadPixels();
 
- img.loadPixels();
- for (int y = 0; y < height; y++ ) {
-    for (int x = 0; x < width; x++ ) {
-      int loc = (int)xp + x + ((int)yp + y) * img.width;
-      // red(), green(), and blue() get the three color      // components from a pixel.
-      float r = red(img.pixels [loc]);
-      float g = green(img.pixels[loc]);
-      float b = blue(img.pixels[loc]);
+  // Draw background
+  for(int y = 0; y < height; y++) {
+    for(int x = 0; x < width; x++) {
+      int locBG = (int)backgroundX + x + ((int)backgroundY + y) * background.width;
+      int loc = x + y * width;
 
-      // Calculate an amount to change brightness
-      // based on proximity to the mouse
+      pixels[loc] = background.pixels[locBG];
+    }
+  }
+
+  updatePixels();
+
+
+  // Draw animals here
+  pushMatrix();
+  translate(-backgroundX, -backgroundY);
+  for(int i = 0; i < ANIMAL_LENGTH; i++) {
+    animals[i].drawAnimal();
+  }
+  animals[0].showBoundary();
+  popMatrix();
+  loadPixels();
+
+  // Flashlight.
+  for(int y = 0; y < height; y++) {
+    for(int x = 0; x < width; x++) {
+      int loc = x + y * width;
+
+      float r = red(pixels[loc]);
+      float g = green(pixels[loc]);
+      float b = blue(pixels[loc]);
+
       float distance = dist(x, y, mouseX, mouseY);
 
-      // The closer the pixel is to the mouse, the lower the distance
-      // We want closer pixels to be brighter, so we invert the value u      // using map(). Pixels with a distance >= 50 are completely dark.
-      // Pixels with a distance of 0 have a brightness of 1.0.
-      float adjustBrightness = map(distance, 0, 200, 1, 0);
+      float adjustBrightness = map(distance, 0, 250, 1, minBrightness);
+
       r *= adjustBrightness;
       g *= adjustBrightness;
       b *= adjustBrightness;
 
-   // The RGB values are constrained between 0 and 255.
       r = constrain(r, 0, 255);
       g = constrain(g, 0, 255);
       b = constrain(b, 0, 255);
 
-      // Set the display pixel to the image pixel
-      img.pixels[loc] = color(r, g, b);
+      pixels[loc] = color(r, g, b);
     }
   }
 
-  img.updatePixels();
+  updatePixels();
 }
 
+// Move.
 void keyPressed(){
   if(key==CODED){
     if(keyCode==UP){
-     yp-=100;
+     backgroundY-=100;
     }else if(keyCode==DOWN){
-     yp+=100;
+     backgroundY+=100;
     }else if(keyCode==LEFT){
-     xp-=100;
+     backgroundX-=100;
     }else if(keyCode==RIGHT){
-     xp+=100;
+     backgroundX+=100;
     }
   }
-   xp=constrain(xp,0,8000);
-   yp=constrain(yp,0,4500);
+  backgroundX=constrain(backgroundX,0,8000);
+  backgroundY=constrain(backgroundY,0,4500);
+  println(backgroundX + ", " + backgroundY);
+}
+
+// Click.
+void mousePressed() {
+  // for(int i = 0; i < ANIMAL_LENGTH; i++) {
+  //   if(animals[i].isMouseOn(mouseX, mouseY)) {
+      minBrightness += 1f/ANIMAL_LENGTH;
+      minBrightness = constrain(minBrightness, 0, 1);
+  //   }
+  // }
+  println(animals[0].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 }

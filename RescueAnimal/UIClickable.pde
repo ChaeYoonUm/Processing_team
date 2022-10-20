@@ -22,7 +22,7 @@ class UIClickable implements IClickable {
   }
 
   // Rectangular area check
-  boolean isMouseOn(int mouse_x, int mouse_y) {
+  boolean isMouseOn(int mouse_x, int mouse_y, float background_X, float background_Y) {
     if(!(lefttop.x + offset.x < mouse_x && mouse_x < rightbottom.x + offset.x)) return false;
     if(!(lefttop.y + offset.y < mouse_y && mouse_y < rightbottom.y + offset.y)) return false;
     return true;
