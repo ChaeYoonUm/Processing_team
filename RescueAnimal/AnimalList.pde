@@ -105,7 +105,6 @@ void AL_setup() {
   Sak = loadImage("sak.png");
   NoruD = loadImage("noruD.png");
   SakD = loadImage("sakD.png");
-  Free = loadImage("free.png");
   How = loadImage("howto.png");
   NoruF = loadImage("noruF.png");
   GaeF = loadImage("gaeF.png");
@@ -139,27 +138,11 @@ void AL_setup() {
   col = new boolean[8];
 }
 
-void AL_drawQ(){
-  pushMatrix();
-  translate(50, 50);
-  scale(0.1);
-  noTint();
-  image(Free, 0, 0);
-  popMatrix();
-}
-
 void AL_draw() {
   
   imageMode(CENTER);
   image(Ww, width/2, height/2);
   image(Rt, 230, 420);
-
-  pushMatrix();
-  translate(50, 50);
-  scale(0.1);
-  noTint();
-  image(Free, 0, 0);
-  popMatrix();
 
   if(Q1size==true) {
     pushMatrix();

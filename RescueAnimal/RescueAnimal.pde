@@ -24,7 +24,7 @@ void setup(){
   minBrightness=0;
   
 
-  boolean testWithoutDark = true;
+  boolean testWithoutDark = false;
 if(testWithoutDark) minBrightness = 1;
   // Animals.
   animals = new Animal[ANIMAL_LENGTH];
@@ -151,6 +151,16 @@ void draw(){
   }
 
   updatePixels();
+  
+  pushMatrix();
+  translate(50,50);
+  scale(0.5);
+  noTint();
+  image(Free,0,0);
+  popMatrix();
+  
+  if(AniList.Freee==true)
+    AniList.AL_draw();
 }
 
 // Move.
@@ -197,7 +207,32 @@ void mousePressed() {
       AniList.col[i]=true;
     }
   }
+  if(17<mouseX&&mouseX<83){
+    if(17<mouseY&&mouseY<83){
+      Freee_operator();
+    }
   
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+}
+}
+
+void Freee_operator() {
+  if(AniList.Freee == true){
+    pushMatrix();
+    translate(50,50); 
+    scale(0);
+    image(Free,0,0);
+    popMatrix();
+    //AniList.Freee = false;
+    }
+  else if(AniList.Freee == false){
+     pushMatrix();
+     translate(50, 50);
+     scale(0.5);
+     image(Free,0,0);
+     popMatrix();
+     //AniList.Freee = true;
+    }
+   
 }
