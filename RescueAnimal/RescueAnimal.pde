@@ -15,8 +15,8 @@ static final int ANIMAL_LENGTH = 8;
 void setup(){
   size(1600,900);
   background=loadImage("Background.png");
-  backgroundX=2200;
-  backgroundY=2300;
+  backgroundX=2600;
+  backgroundY=2550;
   minBrightness=0;
 
   boolean testWithoutDark = true;
