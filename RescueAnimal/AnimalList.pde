@@ -11,8 +11,8 @@ boolean al3 = false;
 boolean al4 = false;
 
 boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들을 다룬다.)
-boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 크 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
-boolean Freee = false; // 왼쪽 위 ? 모양
+boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 큰 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
+boolean Freee = true; // 왼쪽 위 ? 모양 (시작할 때 사용설명서 띄우기)
 
 boolean Noruf, Gaef, Namf, Frogf, Gasif, Meaf, Doromif, Sakf = false; //색깔 동물
 
