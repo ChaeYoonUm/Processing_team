@@ -44,12 +44,13 @@ class GasiFish extends Animal {
 
   // Modify some body parts to describe movement of an animal.
   void move() {
-    noiseValueX = noise(tx) * 2;
+    position.x = map(noise(tx), 0, 1, BACKGROUND_WIDTH-1200, BACKGROUND_WIDTH-200);
     tx += 0.03;
-    noiseValueY = noise(ty) * 2;
+    position.y = map(noise(ty), 0, 1, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
     ty += 0.02;
-    position.x = constrain(position.x + noiseValueX, BACKGROUND_WIDTH-1200, BACKGROUND_WIDTH-200);
-    position.y = constrain(position.y + noiseValueY, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
-    setPosition(position.x, position.y);
+    // position.x = constrain(position.x, BACKGROUND_WIDTH-1200, BACKGROUND_WIDTH-200);
+    // position.y = constrain(position.y, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
+    // setPosition(position.x, position.y);
+    setOffset(position);
   }
 }

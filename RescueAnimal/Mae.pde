@@ -45,15 +45,15 @@ class Mae extends Animal {
 
   // Modify some body parts to describe movement of an animal.
   void move() {
-    // position.x=noise(xtime)*width;
-    // position.y=noise(ytime)*height;
     position.x=map(noise(xtime), 0, 1, 6800, BACKGROUND_WIDTH-200);
     position.y=map(noise(ytime), 0, 1, 2800, 3200);
 
     xtime+=incr;
     ytime+=incr;
 
-    position.x=constrain(position.x, 6800, BACKGROUND_WIDTH-200);
-    position.y=constrain(position.y, 2800, 3200);
+    // position.x=constrain(position.x, 6800, BACKGROUND_WIDTH-200);
+    // position.y=constrain(position.y, 2800, 3200);
+    // setPosition(position.x, position.y);
+    setOffset(position);
   }
 }

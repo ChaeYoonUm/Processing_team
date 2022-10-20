@@ -33,24 +33,24 @@ class SuwonFrog extends Animal {
   /////////////
 
   // Draw Animal.
-  void drawAnimal() { 
+  void drawAnimal() {
     imageMode(CENTER);
-    
+
     rot += rotateFactor;
     if(rot >= 1.5) rotateFactor = -rotateFactor;
     else if(rot <= -1.5) rotateFactor = -rotateFactor;
-    println(rot);
-    
+    // println(rot);
+
     if (-0.1 < rot && rot < 0.1) melong = true;
     else melong = false;
-    
-    
+
+
     // body
     pushMatrix();
     translate(position.x, position.y);
     image(body,0,0);
     //popMatrix();
-    
+
     // head
     pushMatrix();
     translate(0, -80);
@@ -65,7 +65,7 @@ class SuwonFrog extends Animal {
       popMatrix();
     }
     popMatrix();
-    if(melong == true) { 
+    if(melong == true) {
       pushMatrix();
       translate(position.x , position.y);
       image(tongue, -60, -110);

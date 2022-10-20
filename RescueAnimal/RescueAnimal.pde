@@ -15,10 +15,12 @@ static final int ANIMAL_LENGTH = 8;
 void setup(){
   size(1600,900);
   background=loadImage("Background.png");
-  backgroundX=0;
-  backgroundY=0;
+  backgroundX=2200;
+  backgroundY=2300;
   minBrightness=0;
 
+  boolean testWithoutDark = true;
+if(testWithoutDark) minBrightness = 1;
   // Animals.
   animals = new Animal[ANIMAL_LENGTH];
   animals[0] = new Crab(600, 1080);
@@ -54,6 +56,30 @@ void setup(){
   animals[3].addBoundaryVertex(-100, 50);
   animals[3].addBoundaryVertex(100, 50);
   animals[3].addBoundaryVertex(100, -50);
+
+  // Namsengi
+  animals[4].addBoundaryVertex(-100, -50);
+  animals[4].addBoundaryVertex(-100, 50);
+  animals[4].addBoundaryVertex(100, 50);
+  animals[4].addBoundaryVertex(100, -50);
+
+  // Noru
+  animals[5].addBoundaryVertex(-100, -50);
+  animals[5].addBoundaryVertex(-100, 50);
+  animals[5].addBoundaryVertex(100, 50);
+  animals[5].addBoundaryVertex(100, -50);
+
+  // Sak
+  animals[6].addBoundaryVertex(-100, -50);
+  animals[6].addBoundaryVertex(-100, 50);
+  animals[6].addBoundaryVertex(100, 50);
+  animals[6].addBoundaryVertex(100, -50);
+
+  // SuwonFrog
+  animals[7].addBoundaryVertex(-100, -50);
+  animals[7].addBoundaryVertex(-100, 50);
+  animals[7].addBoundaryVertex(100, 50);
+  animals[7].addBoundaryVertex(100, -50);
 }
 
 void draw(){
@@ -79,11 +105,9 @@ void draw(){
   translate(-backgroundX, -backgroundY);
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     animals[i].drawAnimal();
+    animals[i].showBoundary();
   }
-  // animals[0].drawAnimal();
-  // animals[2].drawAnimal();
 
-  // animals[3].showBoundary();
   popMatrix();
   loadPixels();
 
@@ -132,16 +156,16 @@ void keyPressed(){
   }
   backgroundX=constrain(backgroundX,0,8000);
   backgroundY=constrain(backgroundY,0,4500);
-  println(backgroundX + ", " + backgroundY);
+  // println(backgroundX + ", " + backgroundY);
 }
 
 // Click.
 void mousePressed() {
-  // for(int i = 0; i < ANIMAL_LENGTH; i++) {
-  //   if(animals[i].isMouseOn(mouseX, mouseY)) {
+  for(int i = 0; i < ANIMAL_LENGTH; i++) {
+    if(animals[i].isMouseOn(mouseX, mouseY)) {
       minBrightness += 1f/ANIMAL_LENGTH;
       minBrightness = constrain(minBrightness, 0, 1);
-  //   }
-  // }
-  println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+    }
+  }
+  // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 }

@@ -26,6 +26,7 @@ abstract class Animal extends AnimalClickable {
     position = new Position(x, y);
     this.rotation = rotation;
     setOffset(position);
+    setIsClicked(false);
   }
 
   /////////////
@@ -39,11 +40,11 @@ abstract class Animal extends AnimalClickable {
   abstract void move();
 
   // Set a new position and adjust offset of click area.
-  void setPosition(float x, float y) {
-    position.x = x;
-    position.y = y;
-    setOffset(position);
-  }
+  // void setPosition(float x, float y) {
+  //   position.x = x;
+  //   position.y = y;
+  //   setOffset();
+  // }
 
 
   ////////////////////
