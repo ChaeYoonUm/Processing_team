@@ -1,8 +1,10 @@
 class animalList{
 
 PImage QM1, QM2, iB,iP, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
+PImage noru_button,sak_button;
 PImage NoruF, GaeF, NamF, FrogF, GasiF, MeaF, DoromiF, SakF;
 PImage NoruD, GaeD, NamD, FrogD, GasiD, MeaD, DoromiD, SakD;
+PImage firAniImg, secAniImg;
 
 boolean Q1size = true;
 boolean Q2size = false;
@@ -33,44 +35,54 @@ void AL_mousePressed() {
     if(394<mouseY&&mouseY<506)
     Tada = false;  Bsize = false;
   }
-  if(25<mouseX&&mouseX<75) {
-    if(25<mouseY&&mouseY<75) {
+  if(17<mouseX&&mouseX<83) {
+    if(17<mouseY&&mouseY<83) {
       if(Freee == false)
       Freee = true;
       else if(Freee == true)
       Freee = false;
+    }
+  }
 }
 
-void f1() {
-  if(Q1size == false) {
+void AL_keyPressed() {
+  if(key == CODED) {
+    // f1's ASCII code is 112
+    if(keyCode == 112) {
+      if(Q1size == false) {
       Q1size = true;  Q2size = false;
+      }
+    }
   }
-}
-void f2() {
-  if(Q2size == false) {
+    if(key == CODED) {
+    // f1's ASCII code is 113
+    if(keyCode == 113) {
+      if(Q2size == false) {
       Q2size = true;  Q1size = false;
+      }
+    }
   }
-}
 
-void al1() {
-  if(al1 == false) {
-  al1 = true; al2 = false; al3 = false; al4 = false;
+  if(key == '1') {
+    if(al1 == false) {
+      al1 = true; al2 = false; al3 = false; al4 = false;
+      }
   }
-}
-void al2() {
-  if(al2 == false) {
-  al1 = false; al2 = true; al3 = false; al4 = false;
+  else if(key == '2') {
+    if(al2 == false) {
+      al1 = false; al2 = true; al3 = false; al4 = false;
+      }
   }
-}
-void al3() {
-  if(al3 == false) {
-  al1 = false; al2 = false; al3 = true; al4 = false;
+  else if(key == '3') {
+    if(al3 == false) {
+      al1 = false; al2 = false; al3 = true; al4 = false;
+      }
   }
-}
-void al4() {
-  if(al4 == false) {
-  al1 = false; al2 = false; al3 = false; al4 = true;
-  }
+  else if(key == '4') {
+    if(al4 == false) {
+      al1 = false; al2 = false; al3 = false; al4 = true;
+      }
+    }
 }
 
 void AL_setup() {
@@ -114,6 +126,12 @@ void AL_setup() {
   MeaD = loadImage("meaD.png");
   DoromiD = loadImage("doromiD.png");
   SakD = loadImage("sakD.png");
+  noru_button=loadImage("noru_button.png");
+  sak_button=loadImage("sak_button.png");
+  
+  firAniImg=QM1;
+  secAniImg=QM2;
+  
   col = new boolean[8];
 }
 
@@ -127,7 +145,7 @@ void AL_drawQ(){
 }
 
 void AL_draw() {
-
+  
   imageMode(CENTER);
   image(Ww, width/2, height/2);
   image(iP, 1, 1);
@@ -135,7 +153,7 @@ void AL_draw() {
 
   pushMatrix();
   translate(50, 50);
-  scale(0.1);
+  scale(0.5);
   noTint();
   image(Free, 0, 0);
   popMatrix();
@@ -145,7 +163,7 @@ void AL_draw() {
     translate(230,320);
     scale(1);
     noTint();
-    image(QM1, 0, 0);
+    image(firAniImg, 0, 0);
     popMatrix();
   }
    else if(Q1size==false) {
@@ -153,7 +171,7 @@ void AL_draw() {
      translate(234,324);
     scale(0.65);
     tint(255, 150);
-    image(QM1, 0, 0);
+    image(firAniImg, 0, 0);
     popMatrix();
    }
    if(Q2size==false) {
@@ -489,9 +507,12 @@ else if(Tada == false) {
       scale(1);
       if(col[5] == false)
       image(Noru, 200, 0);
-      else if(col[5] == true)
+
+      else if(col[5] == true){
       image(NoruF, 200, 0);
       popMatrix();
+      firAniImg=noru_button;
+      }
     }
     else if(al3 == true) {
       pushMatrix();
@@ -559,6 +580,8 @@ else if(Tada == false) {
   }
  }
 
+
+
  if(Freee == true) { //게임 조작 이용 방법 ? 버튼
     pushMatrix();
   translate(width/2+19, height/2);
@@ -568,4 +591,5 @@ else if(Tada == false) {
   popMatrix();
   }
 }
+
 }

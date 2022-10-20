@@ -1,4 +1,3 @@
-
 // background variables.
 PImage background, Free;
 float backgroundX,backgroundY;
@@ -8,9 +7,6 @@ static final int BACKGROUND_HEIGHT = 5400;
 boolean AL=false;
 animalList AniList;
 
-//여기에 냅다 생성
-animalList animallist = new animalList();
-
 
 // Animals.
 Animal[] animals;
@@ -19,13 +15,14 @@ static final int ANIMAL_LENGTH = 8;
 // setup
 void setup(){
   size(1600,900);
+  Free = loadImage("free.png");
   AniList=new animalList();
   background=loadImage("Background.png");
-  Free = loadImage("free.png");
   backgroundX=2600;
   backgroundY=2550;
   minBrightness=0;
-
+ 
+  
 
   boolean testWithoutDark = false;
 if(testWithoutDark) minBrightness = 1;
@@ -88,23 +85,24 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(-100, 50);
   animals[7].addBoundaryVertex(100, 50);
   animals[7].addBoundaryVertex(100, -50);
-
+  
   AniList.AL_setup();
 }
 
 void draw(){
+  
   if(AL==true){
     image(AniList.backgroundCapture, 800, 450);
     AniList.AL_draw();
     println("1");
     return;
   }
-
-
+  
+  
   // load pixels
   background.loadPixels();
   loadPixels();
-
+  
   // Draw background
   for(int y = 0; y < height; y++) {
     for(int x = 0; x < width; x++) {
@@ -155,8 +153,18 @@ void draw(){
   }
 
   updatePixels();
-
-  animallist.AL_draw();
+  
+  pushMatrix();
+  translate(50, 50);
+  scale(0.5);
+  noTint();
+  image(Free, 0, 0);
+  popMatrix();
+  
+  if(AniList.Freee == true){
+     AniList.AL_draw();
+  }
+  
 }
 
 // Move.
@@ -175,11 +183,11 @@ void keyPressed(){
   backgroundX=constrain(backgroundX,0,8000);
   backgroundY=constrain(backgroundY,0,4500);
   // println(backgroundX + ", " + backgroundY);
-
+  
   if(key==TAB){
     AL = !AL;
     if(!AL) return;
-
+    
     if(AniList.backgroundCapture == null) AniList.backgroundCapture = createImage(width, height, RGB);
     AniList.backgroundCapture.loadPixels();
     loadPixels();
@@ -203,20 +211,34 @@ void mousePressed() {
       AniList.col[i]=true;
     }
   }
-
+  
+  if(17<mouseX&&mouseX<83) {
+    if(17<mouseY&&mouseY<83) 
+      Freee_operator();
+      println(mouseX +"and"+ mouseY);
+  }
+  
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+}
 
-  if(1428<mouseX&&mouseX<1492) {
-    if(394<mouseY&&mouseY<506)
-      animallist.AL_mousePressed1();
-  }
-  if(918<mouseX&&mouseX<983) {
-    if(394<mouseY&&mouseY<506)
-    animallist.AL_mousePressed2();
-  }
-  if(25<mouseX&&mouseX<75) {
-    if(25<mouseY&&mouseY<75)
-     animallist.AL_mousePressed3();
-  }
+
+void Freee_operator() {
+  if(AniList.Freee == true){
+    pushMatrix();
+    translate(50,50); 
+    scale(0);
+    image(Free,0,0);
+    popMatrix();
+    //AniList.Freee = false;
+    }
+  else if(AniList.Freee == false){
+     pushMatrix();
+     translate(50, 50);
+     scale(0.5);
+     image(Free,0,0);
+     popMatrix();
+     //AniList.Freee = true;
+    }
+   
 }
