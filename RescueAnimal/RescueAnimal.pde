@@ -14,7 +14,7 @@ static final int ANIMAL_LENGTH = 8;
 // setup
 void setup(){
   size(1600,900);
-  background=loadImage("bg.png");
+  background=loadImage("Background.png");
   backgroundX=0;
   backgroundY=0;
   minBrightness=0;
