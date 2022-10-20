@@ -6,6 +6,8 @@ float minBrightness;
 static final int BACKGROUND_WIDTH = 9600;
 static final int BACKGROUND_HEIGHT = 5400;
 
+animalList animallist = new animalList();
+
 
 // Animals.
 Animal[] animals;
@@ -18,7 +20,6 @@ void setup(){
   backgroundX=2200;
   backgroundY=2300;
   minBrightness=0;
-  //animalList animallist = new animalList();
 
   boolean testWithoutDark = true;
 if(testWithoutDark) minBrightness = 1;
@@ -82,7 +83,7 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(100, 50);
   animals[7].addBoundaryVertex(100, -50);
   
-  AL_setup();
+  animallist.AL_setup();
 }
 
 void draw(){
@@ -143,7 +144,7 @@ void draw(){
 
   updatePixels();
   
-  AL_draw();
+  animallist.AL_draw();
 }
 
 // Move.
@@ -166,21 +167,21 @@ void keyPressed(){
   if(key == CODED) {
     // f1's ASCII code is 112
     if(keyCode == 112)
-      f1();
+      animallist.f1();
   }
   if(key == CODED) {
     // f1's ASCII code is 113
     if(keyCode == 113)
-      f2();
+      animallist.f2();
   }
   if(key == '1')
-  al1();
+  animallist.al1();
   if(key == '2')
-  al2();
+  animallist.al2();
   if(key == '3')
-  al3();
+  animallist.al3();
   if(key == '4')
-  al4();
+  animallist.al4();
   
   
 }
@@ -197,14 +198,14 @@ void mousePressed() {
   
   if(1428<mouseX&&mouseX<1492) {
     if(394<mouseY&&mouseY<506)
-      AL_mousePressed1();
+      animallist.AL_mousePressed1();
   }
   if(918<mouseX&&mouseX<983) {
     if(394<mouseY&&mouseY<506)
-    AL_mousePressed2();
+    animallist.AL_mousePressed2();
   }
   if(25<mouseX&&mouseX<75) {
     if(25<mouseY&&mouseY<75) 
-     AL_mousePressed3();
+     animallist.AL_mousePressed3();
   }
 }

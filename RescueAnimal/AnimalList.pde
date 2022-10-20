@@ -1,4 +1,4 @@
-//class animalList {
+class animalList {
   PImage QM1, QM2, iB,iP, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
 PImage NoruF, GaeF, NamF, FrogF, GasiF, MeaF, DoromiF, SakF;
 PImage NoruD, GaeD, NamD, FrogD, GasiD, MeaD, DoromiD, SakD;
@@ -548,4 +548,4 @@ else if(Tada == false) {
   popMatrix();
   }
 }
-//}
+}
