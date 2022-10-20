@@ -73,11 +73,13 @@ void draw(){
   // animals[0].drawAnimal();
   // animals[2].drawAnimal();
 
-  animals[2].showBoundary();
+  // animals[2].showBoundary();
   popMatrix();
   loadPixels();
 
   // Flashlight.
+  if(minBrightness > 0.99) return;
+  
   for(int y = 0; y < height; y++) {
     for(int x = 0; x < width; x++) {
       int loc = x + y * width;

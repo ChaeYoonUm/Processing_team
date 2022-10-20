@@ -40,8 +40,6 @@ class GasiFish extends Animal {
     scale(0.2);
     image(gasi,0,0);
     popMatrix();
-
-    println("Gasi: " + position.x + " " + position.y);
   }
 
   // Modify some body parts to describe movement of an animal.
