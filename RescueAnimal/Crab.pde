@@ -2,6 +2,11 @@
 // Written by Yang Eun Seo.
 
 class Crab extends Animal {
+
+  ///////////////
+  // variables //
+  ///////////////
+  
   PImage body,RH,LH;
 
   float rot=0;

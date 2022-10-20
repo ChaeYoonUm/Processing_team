@@ -11,6 +11,9 @@ static final int BACKGROUND_HEIGHT = 5400;
 Animal[] animals;
 static final int ANIMAL_LENGTH = 8;
 
+// Epilogue
+Epilogue ep;
+
 // setup
 void setup(){
   size(1600,900);
@@ -80,9 +83,16 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(-100, 50);
   animals[7].addBoundaryVertex(100, 50);
   animals[7].addBoundaryVertex(100, -50);
+
+  ep = new Epilogue();
 }
 
 void draw(){
+  if(ep.isEnd) {
+    ep.run();
+    return;
+  }
+
   // load pixels
   background.loadPixels();
   loadPixels();
@@ -143,6 +153,7 @@ void draw(){
 
 // Move.
 void keyPressed(){
+  if(ep.isEnd) return;
   if(key==CODED){
     if(keyCode==UP){
      backgroundY-=100;
@@ -167,5 +178,8 @@ void mousePressed() {
       minBrightness = constrain(minBrightness, 0, 1);
     }
   }
-  // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+
+  if(mouseButton == RIGHT) {
+    ep.isEnd = true;
+  }
 }

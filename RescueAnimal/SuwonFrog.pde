@@ -3,6 +3,10 @@
 
 class SuwonFrog extends Animal {
 
+  ///////////////
+  // variables //
+  ///////////////
+
   PImage body,head,tongue;
 
   float rot=0;

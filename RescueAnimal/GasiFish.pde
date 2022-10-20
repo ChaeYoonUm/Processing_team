@@ -1,6 +1,8 @@
 // GasiFish.pde
 // Written by Yang Eun Seo.
+
 class GasiFish extends Animal {
+
   ///////////////
   // variables //
   ///////////////
@@ -24,7 +26,6 @@ class GasiFish extends Animal {
     gasi = loadImage("gasi.png");
 
   }
-
 
   /////////////
   // methods //
