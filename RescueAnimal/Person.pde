@@ -12,7 +12,7 @@ class Person extends Animal {
   // 0 = side;
   // 1 = diagonal
   // 2 = front
-  int face_condition = 0;
+  int face_condition;
 
   //////////////////
   // constructors //
@@ -26,9 +26,10 @@ class Person extends Animal {
   }
   Person(float x, float y, float rotation) {
     super(x, y, rotation);
-    side=loadImage("person_side.png");
-    diag=loadImage("person_diagonal.png");
-    front=loadImage("person_front.png");
+    side=loadImage("Person_Side.png");
+    diag=loadImage("Person_Diagonal.png");
+    front=loadImage("Person_Front.png");
+    face_condition = 0;
   }
 
   /////////////
