@@ -2,6 +2,11 @@
 // Written by Nam Eun Su.
 
 class Namsengi extends Animal {
+
+  ///////////////
+  // variables //
+  ///////////////
+  
   PImage body,head;
   float x;
 

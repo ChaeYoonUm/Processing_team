@@ -13,6 +13,9 @@ animalList AniList;
 Animal[] animals;
 static final int ANIMAL_LENGTH = 8;
 
+// Epilogue
+Epilogue ep;
+
 // setup
 void setup(){
   size(1600,900);
@@ -88,16 +91,22 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(100, -150);
   
   AniList.AL_setup();
+
+  ep = new Epilogue();
 }
 
 void draw(){
+  if(ep.isEnd) {
+    ep.run();
+    return;
+  }
+
   if(AL==true){
     image(AniList.backgroundCapture, 800, 450);
     AniList.AL_draw();
     return;
   }
-  
-  
+
   // load pixels
   background.loadPixels();
   loadPixels();
@@ -166,6 +175,7 @@ void draw(){
 
 // Move.
 void keyPressed(){
+  if(ep.isEnd) return;
   if(key==CODED){
     if(keyCode==UP){
      backgroundY-=100;
@@ -213,4 +223,8 @@ void mousePressed() {
   
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
+
+  if(mouseButton == RIGHT) {
+    ep.isEnd = true;
+  }
 }
