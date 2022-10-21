@@ -39,52 +39,53 @@ if(testWithoutDark) minBrightness = 1;
 
   // Vertex boundary for each animal.
   // Crab
-  animals[0].addBoundaryVertex(-50, -50);
-  animals[0].addBoundaryVertex(-50, 50);
-  animals[0].addBoundaryVertex(50, 50);
-  animals[0].addBoundaryVertex(50, -50);
+  animals[0].addBoundaryVertex(-100, -50);
+  animals[0].addBoundaryVertex(-100, 50);
+  animals[0].addBoundaryVertex(100, 50);
+  animals[0].addBoundaryVertex(100, -50);
 
   // Durumi
-  animals[1].addBoundaryVertex(-50, -50);
-  animals[1].addBoundaryVertex(-50, 50);
+  animals[1].addBoundaryVertex(-300, -200);
+  animals[1].addBoundaryVertex(-300, 50);
   animals[1].addBoundaryVertex(50, 50);
-  animals[1].addBoundaryVertex(50, -50);
+  animals[1].addBoundaryVertex(50, -200);
 
   // GasiFish
-  animals[2].addBoundaryVertex(-50, -50);
-  animals[2].addBoundaryVertex(-50, 50);
-  animals[2].addBoundaryVertex(50, 50);
-  animals[2].addBoundaryVertex(50, -50);
+  animals[2].addBoundaryVertex(-100, -50);
+  animals[2].addBoundaryVertex(-100, 50);
+  animals[2].addBoundaryVertex(100, 50);
+  animals[2].addBoundaryVertex(100, -50);
 
   // Mae
   animals[3].addBoundaryVertex(-100, -50);
-  animals[3].addBoundaryVertex(-100, 50);
-  animals[3].addBoundaryVertex(100, 50);
+  animals[3].addBoundaryVertex(-100, 80);
+  animals[3].addBoundaryVertex(100, 80);
   animals[3].addBoundaryVertex(100, -50);
 
   // Namsengi
+  animals[4].addBoundaryVertex(0, -120);
   animals[4].addBoundaryVertex(-100, -50);
-  animals[4].addBoundaryVertex(-100, 50);
-  animals[4].addBoundaryVertex(100, 50);
+  animals[4].addBoundaryVertex(-150, 50);
+  animals[4].addBoundaryVertex(150, 50);
   animals[4].addBoundaryVertex(100, -50);
 
   // Noru
-  animals[5].addBoundaryVertex(-100, -50);
-  animals[5].addBoundaryVertex(-100, 50);
-  animals[5].addBoundaryVertex(100, 50);
-  animals[5].addBoundaryVertex(100, -50);
+  animals[5].addBoundaryVertex(-300, -300);
+  animals[5].addBoundaryVertex(-300, 100);
+  animals[5].addBoundaryVertex(100, 100);
+  animals[5].addBoundaryVertex(100, -300);
 
   // Sak
-  animals[6].addBoundaryVertex(-100, -50);
-  animals[6].addBoundaryVertex(-100, 50);
-  animals[6].addBoundaryVertex(100, 50);
-  animals[6].addBoundaryVertex(100, -50);
+  animals[6].addBoundaryVertex(-100, -150);
+  animals[6].addBoundaryVertex(-100,150);
+  animals[6].addBoundaryVertex(100, 150);
+  animals[6].addBoundaryVertex(100, -150);
 
   // SuwonFrog
-  animals[7].addBoundaryVertex(-100, -50);
-  animals[7].addBoundaryVertex(-100, 50);
-  animals[7].addBoundaryVertex(100, 50);
-  animals[7].addBoundaryVertex(100, -50);
+  animals[7].addBoundaryVertex(-100, -150);
+  animals[7].addBoundaryVertex(-100, 70);
+  animals[7].addBoundaryVertex(100, 70);
+  animals[7].addBoundaryVertex(100, -150);
   
   AniList.AL_setup();
 }
@@ -117,7 +118,7 @@ void draw(){
   translate(-backgroundX, -backgroundY);
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     animals[i].drawAnimal();
-    // animals[i].showBoundary();
+     //animals[i].showBoundary();
   }
 
   popMatrix();
@@ -181,6 +182,8 @@ void keyPressed(){
   // println(backgroundX + ", " + backgroundY);
   
   if(key==TAB){
+    AniList.Freee=false;
+    
     AL = !AL;
     if(!AL) return;
     

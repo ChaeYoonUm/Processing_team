@@ -331,7 +331,7 @@ void AL_draw() {
      if(col[0] == false)
      firAniImg=QM1;
      else if(col[0] == true)
-     firAniImg=gasi_button;
+     firAniImg=crab_button;
      
      if(col[2] == false)
      secAniImg=QM2;
@@ -694,7 +694,7 @@ noTint();
 
  if(Freee == true) { //게임 조작 이용 방법 ? 버튼
     pushMatrix();
-  translate(width/2+19, height/2);
+  translate(width/2+22, height/2);
   scale(1);
   noTint();
   image(How, 0, 0);
