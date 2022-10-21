@@ -22,6 +22,8 @@ class Epilogue {
   PImage backgroundDevastated, partialBackDev;
   String devastating, dialogue1, dialogue2;
   Person p;
+  
+  PFont fontHuman, fontMsg;
 
   // 0 = not ended
   // 1 = gather
@@ -36,6 +38,9 @@ class Epilogue {
   //////////////////
 
   Epilogue() {
+    fontMsg = createFont("The Barimhare.ttf", 128);
+    fontHuman = createFont("True Lies.ttf", 128);
+    
     isEnd = false;
     condition = 2;
 
@@ -55,7 +60,7 @@ class Epilogue {
     monologue22 = "one-eighth of existing plants and animals, are endangered.";
     monologue3 = "If animals disappear one by one, the Earth will be in great confusion.";
     pg_y = 0;
-    pg_y_speed = 10f; // original value = 2f; test = 10f;
+    pg_y_speed = 2f; // original value = 2f; test = 10f;
 
     // devastated
     backgroundDevastated = loadImage("Background_Devastated.png");
@@ -154,12 +159,13 @@ class Epilogue {
       pg_Monologue.imageMode(CENTER);
       pg_Monologue.image(animalsPicture, 0, 0);
       pg_Monologue.textAlign(CENTER);
-      pg_Monologue.textSize(40);
+      pg_Monologue.textFont(fontMsg);
+       pg_Monologue.textSize(50);
       pg_Monologue.text(monologue11, 0, 500);
-      pg_Monologue.text(monologue12, 0, 540);
-      pg_Monologue.text(monologue21, 0, 640);
-      pg_Monologue.text(monologue22, 0, 680);
-      pg_Monologue.text(monologue3, 0, 780);
+      pg_Monologue.text(monologue12, 0, 560);
+      pg_Monologue.text(monologue21, 0, 660);
+      pg_Monologue.text(monologue22, 0, 720);
+      pg_Monologue.text(monologue3, 0, 820);
       pg_Monologue.popMatrix();
       pg_Monologue.endDraw();
       delay(1000);
@@ -189,6 +195,13 @@ class Epilogue {
 
   // for condition 4
   void devastated() {
+    pushMatrix();
+    translate(width/2, height/2);
+    textSize(40);
+    textAlign(CENTER);
+    text(devastating, 0, 0);
+    delay(1000);
+    
     if(partialBackDev == null) {
       partialBackDev = createImage(width, height, RGB);
       partialBackDev.loadPixels();
@@ -209,8 +222,6 @@ class Epilogue {
       p.addBoundaryVertex(100, 50);
       p.addBoundaryVertex(100, -50);
     }
-    pushMatrix();
-    translate(width/2, height/2);
     image(partialBackDev, 0, 0);
     p.drawAnimal();
     p.showBoundary();
