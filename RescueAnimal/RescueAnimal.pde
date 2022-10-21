@@ -227,4 +227,8 @@ void mousePressed() {
   if(mouseButton == RIGHT) {
     ep.isEnd = true;
   }
+
+  if(ep.personClick(mouseX, mouseY)) {
+    println("Person");
+  }
 }

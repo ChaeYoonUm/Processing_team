@@ -19,7 +19,7 @@ class Epilogue {
   static final float MAX_PG_Y = -1300;
 
   // devastated
-  PImage backgroundDevastated;
+  PImage backgroundDevastated, partialBackDev;
   String devastating, dialogue1, dialogue2;
   Person p;
 
@@ -55,13 +55,15 @@ class Epilogue {
     monologue22 = "one-eighth of existing plants and animals, are endangered.";
     monologue3 = "If animals disappear one by one, the Earth will be in great confusion.";
     pg_y = 0;
-    pg_y_speed = 2f;
+    pg_y_speed = 10f; // original value = 2f; test = 10f;
 
     // devastated
-    backgroundDevastated = loadImage("Background_Devastated");
+    backgroundDevastated = loadImage("Background_Devastated.png");
+    partialBackDev = null;
     devastating = "hundreds of years later...";
     dialogue1 = "Now that all the animals are gone,";
     dialogue2 = "Who is next?";
+    p = null;
   }
 
   /////////////
@@ -187,7 +189,32 @@ class Epilogue {
 
   // for condition 4
   void devastated() {
+    if(partialBackDev == null) {
+      partialBackDev = createImage(width, height, RGB);
+      partialBackDev.loadPixels();
+      backgroundDevastated.loadPixels();
+      for(int y = 0; y < height; y++) {
+        for(int x = 0; x < width; x++) {
+          int locBG = x + BACKGROUND_WIDTH/2 + 200 + (y + BACKGROUND_HEIGHT/2 - 2000) * backgroundDevastated.width;
+          int loc = x + y * width;
+          partialBackDev.pixels[loc] = backgroundDevastated.pixels[locBG];
+        }
+      }
+      partialBackDev.updatePixels();
 
+      // Person
+      p = new Person(-200, 0);
+      p.addBoundaryVertex(-100, -50);
+      p.addBoundaryVertex(-100, 50);
+      p.addBoundaryVertex(100, 50);
+      p.addBoundaryVertex(100, -50);
+    }
+    pushMatrix();
+    translate(width/2, height/2);
+    image(partialBackDev, 0, 0);
+    p.drawAnimal();
+    p.showBoundary();
+    popMatrix();
   }
 
   // for condition
@@ -208,5 +235,11 @@ class Epilogue {
     } else if(condition == 5) {
       endingMsg();
     }
+  }
+
+  boolean personClick(int mx, int my) {
+    if(ep.p == null) return false;
+    println(mx + ", " + my);
+    return p.isMouseOn(mx, my);
   }
 }
