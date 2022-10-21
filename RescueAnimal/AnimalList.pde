@@ -14,7 +14,7 @@ boolean al2 = false;
 boolean al3 = false;
 boolean al4 = false;
 
-boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들을 다룬다.)
+//boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들을 다룬다.)
 boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 큰 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
 boolean Freee = true; // 왼쪽 위 ? 모양 (시작할 때 사용설명서 띄우기)
 
@@ -26,12 +26,12 @@ PImage backgroundCapture;
 void AL_mousePressed() {
   if(1428<mouseX&&mouseX<1492) {
     if(394<mouseY&&mouseY<506) {
-      Tada = true;  Bsize = true;
+      Bsize = true;
     }
   }
   if(918<mouseX&&mouseX<983) {
     if(394<mouseY&&mouseY<506)
-    Tada = false;  Bsize = false;
+      Bsize = false;
   }
   if(25<mouseX&&mouseX<75) {
     if(25<mouseY&&mouseY<75) {
@@ -399,7 +399,8 @@ void AL_draw() {
      }
    }
   }
-  if(Bsize == true) { // 창이 열림
+  /////////////////
+  else if(Bsize == true) { // 창이 열림
 
   pushMatrix();
   translate(600, 700);
@@ -407,6 +408,13 @@ void AL_draw() {
   noTint();
   image(Bm, 0, 0);
   popMatrix();
+  
+  pushMatrix();
+    translate(1230, 450);
+    scale(1);
+    noTint();
+    image(instruction, 0, 0);
+    popMatrix();
 
   if(al1 == true) {
     pushMatrix();
@@ -472,11 +480,7 @@ void AL_draw() {
     image(Bird, 0, 0);
     popMatrix();
   }
-}
-  noTint();
-
- if(Tada == true) { //창 열림
-   pushMatrix();
+     pushMatrix();
     translate(1230, 450);
     scale(1);
     noTint();
@@ -684,7 +688,9 @@ if(col[3]==true){
     }
   }
 }
- }
+noTint();
+}
+
 
  if(Freee == true) { //게임 조작 이용 방법 ? 버튼
     pushMatrix();
