@@ -31,7 +31,7 @@ class Epilogue {
   PGraphics pg_Ending;
   float pgE_y, pgE_y_speed;
   static final float MAX_PGE_Y=-1300;
-  
+
   // 0 = not ended
   // 1 = gather
   // 2 = takePicture
@@ -47,7 +47,7 @@ class Epilogue {
   Epilogue() {
     fontMsg = createFont("The Barimhare.ttf", 128);
     fontHuman = createFont("adrip1.ttf", 128);
-    
+
     isEnd = false;
     condition = 2;
 
@@ -67,7 +67,7 @@ class Epilogue {
     monologue22 = "one-eighth of existing plants and animals, are endangered.";
     monologue3 = "If animals disappear one by one, the Earth will be in great confusion.";
     pg_y = 0;
-    pg_y_speed = 10f; // original value = 2f; test = 10f;
+    pg_y_speed = 2f; // original value = 2f; test = 10f;
 
     // devastated
     backgroundDevastated = loadImage("Background_Devastated.png");
@@ -77,7 +77,7 @@ class Epilogue {
     dialogue1_2 = "all the animals are gone,";
     dialogue2 = "Who is next?";
     p = null;
-    
+
     pgE_y_speed = 2f;
   }
 
@@ -203,20 +203,20 @@ class Epilogue {
       textAlign(CENTER);
       text(devastating, 0, 0);
     }else {
-      
+
       condition = 4;
     }
     popMatrix();
-      
-    
-    
+
+
+
   }
 
   // for condition 4
   void devastated() {
     pushMatrix();
     translate(width/2, height/2);
-    
+
     if(partialBackDev == null) {
       partialBackDev = createImage(width, height, RGB);
       partialBackDev.loadPixels();
@@ -263,7 +263,7 @@ class Epilogue {
       textSize(150);
       fill(196,11,19);
       text(dialogue2,width/2+50,height/2+50);
-      
+
       pushMatrix();
       translate(width/4,height/2);
       if(pg_Ending==null){
@@ -279,7 +279,7 @@ class Epilogue {
         pg_Ending.text("and ask you to participate in activities to protect them.", 0, 480);
         pg_Ending.text("- Ajou Univ. Creative Media Programming, 2022 Fall.", 0, 580);
         pg_Ending.text("20227178 Lee Yongkyu", 0, 680);
-        pg_Ending.text("202127238 Yange Eunseo", 0, 720);
+        pg_Ending.text("202127238 Yang Eunseo", 0, 720);
         pg_Ending.text("202127243 Nam Eunsu", 0, 760);
         pg_Ending.text("202127252 Um Chaeyoon", 0, 800);
         pg_Ending.popMatrix();
@@ -292,15 +292,15 @@ class Epilogue {
     }else {
       condition=6;
     }
-    
+
     popMatrix();
-    
+
   }
-  
+
   void endingFin(){
     background(0);
     delay(1000);
-    
+
     textFont(fontHuman);
     textSize(300);
     fill(196,11,19);
@@ -321,7 +321,7 @@ class Epilogue {
     } else if(condition == 5) {
       endingMsg();
     } else if(condition == 6){
-      endingFin(); 
+      endingFin();
     }
   }
 
@@ -330,7 +330,7 @@ class Epilogue {
     boolean ret = p.isMouseOn(mx, my);
 
     if(ret == false) return ret;
-    
+
     // mouse clicked the person
     //println(mx + ", " + my);
     p.face_condition++;
