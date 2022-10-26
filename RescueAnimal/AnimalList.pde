@@ -33,44 +33,54 @@ void AL_mousePressed() {
     if(394<mouseY&&mouseY<506)
       Bsize = false;
   }
-  if(25<mouseX&&mouseX<75) {
-    if(25<mouseY&&mouseY<75) {
+  if(17<mouseX&&mouseX<83) {
+    if(17<mouseY&&mouseY<83) {
       if(Freee == false)
       Freee = true;
       else if(Freee == true)
       Freee = false;
+    }
+  }
 }
 
-void f1() {
-  if(Q1size == false) {
+void AL_keyPressed() {
+  if(key == CODED) {
+    // f1's ASCII code is 112
+    if(keyCode == 112) {
+      if(Q1size == false) {
       Q1size = true;  Q2size = false;
+      }
+    }
   }
-}
-void f2() {
-  if(Q2size == false) {
+    if(key == CODED) {
+    // f1's ASCII code is 113
+    if(keyCode == 113) {
+      if(Q2size == false) {
       Q2size = true;  Q1size = false;
+      }
+    }
   }
-}
 
-void al1() {
-  if(al1 == false) {
-  al1 = true; al2 = false; al3 = false; al4 = false;
+  if(key == '1') {
+    if(al1 == false) {
+      al1 = true; al2 = false; al3 = false; al4 = false;
+      }
   }
-}
-void al2() {
-  if(al2 == false) {
-  al1 = false; al2 = true; al3 = false; al4 = false;
+  else if(key == '2') {
+    if(al2 == false) {
+      al1 = false; al2 = true; al3 = false; al4 = false;
+      }
   }
-}
-void al3() {
-  if(al3 == false) {
-  al1 = false; al2 = false; al3 = true; al4 = false;
+  else if(key == '3') {
+    if(al3 == false) {
+      al1 = false; al2 = false; al3 = true; al4 = false;
+      }
   }
-}
-void al4() {
-  if(al4 == false) {
-  al1 = false; al2 = false; al3 = false; al4 = true;
-  }
+  else if(key == '4') {
+    if(al4 == false) {
+      al1 = false; al2 = false; al3 = false; al4 = true;
+      }
+    }
 }
 
 void AL_setup() {
@@ -691,4 +701,5 @@ noTint();
   popMatrix();
   }
 }
+
 }

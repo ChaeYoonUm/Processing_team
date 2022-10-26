@@ -12,6 +12,7 @@ animalList AniList;
 animalList animallist = new animalList();
 
 
+
 // Animals.
 Animal[] animals;
 static final int ANIMAL_LENGTH = 8;
@@ -221,16 +222,36 @@ void mousePressed() {
       minBrightness += 1f/ANIMAL_LENGTH;
       minBrightness = constrain(minBrightness, 0, 1);
       AniList.col[i]=true;
+      animals[i].setIsClicked(true);
     }
   }
+  
+  int cnt = 0;
+    for(int i = 0 ; i < 8; i++){
+      if(animals[i].getIsClicked() == true){
+            cnt++;
+      }
+    }
+    if(cnt == 8)
+      ep.isEnd = true;
 
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 
+/*
   if(mouseButton == RIGHT) {
-    ep.isEnd = true;
+    //ep.isEnd = true;
+    int cnt = 0;
+    for(int i = 0 ; i < 8; i++){
+      if(animals[i].getIsClicked() == true){
+            cnt++;
+      }
+    }
+    if(cnt == 8)
+      ep.isEnd = true;
+      
   }
-
+*/
   if(ep.personClick(mouseX, mouseY)) {
     println("Person");
   }
