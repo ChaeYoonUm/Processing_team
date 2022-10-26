@@ -1,3 +1,5 @@
+// Written by Lee Yong Kyu, Yang Eun Seo
+
 class Epilogue {
 
   ///////////////
@@ -22,7 +24,7 @@ class Epilogue {
   PImage backgroundDevastated, partialBackDev;
   String devastating, dialogue1, dialogue2;
   Person p;
-  
+
   PFont fontHuman, fontMsg;
 
   // 0 = not ended
@@ -40,7 +42,7 @@ class Epilogue {
   Epilogue() {
     fontMsg = createFont("The Barimhare.ttf", 128);
     fontHuman = createFont("True Lies.ttf", 128);
-    
+
     isEnd = false;
     condition = 2;
 
@@ -201,7 +203,7 @@ class Epilogue {
     textAlign(CENTER);
     text(devastating, 0, 0);
     delay(1000);
-    
+
     if(partialBackDev == null) {
       partialBackDev = createImage(width, height, RGB);
       partialBackDev.loadPixels();

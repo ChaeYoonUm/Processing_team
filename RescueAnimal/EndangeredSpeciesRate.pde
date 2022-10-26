@@ -1,3 +1,5 @@
+// Written by Eom Chae Yoon
+
 class EndangeredSpeciesRateAPI {
   /////////////
   // methods //

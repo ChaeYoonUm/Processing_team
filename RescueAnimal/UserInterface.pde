@@ -1,4 +1,5 @@
 abstract class UserInterface extends UIClickable {
+  
   ///////////////
   // variables //
   ///////////////

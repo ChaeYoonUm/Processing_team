@@ -39,7 +39,7 @@ class AnimalClickable implements IClickable {
         if(atX > mouse_x) cnt++;
       }
     }
-    
+
     isClicked = cnt % 2 != 0;
     return isClicked;
   }
