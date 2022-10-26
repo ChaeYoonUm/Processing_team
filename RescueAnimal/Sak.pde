@@ -2,13 +2,16 @@
 // Written by Nam Eun Su.
 class Sak extends Animal {
 
+  ///////////////
+  // variables //
+  ///////////////
+
   PImage body,arm,tongue;
 
   float rot=0;
   float rotateFactor = 0.01;
 
   boolean melong = false;
-
 
   //////////////////
   // constructors //
@@ -26,7 +29,6 @@ class Sak extends Animal {
     arm=loadImage("sak_arm.png");
     tongue=loadImage("sak_tongue.png");
   }
-
 
   /////////////
   // methods //
@@ -61,10 +63,10 @@ class Sak extends Animal {
     popMatrix();
 
     if(melong == true) {
-    pushMatrix();
-    translate(position.x, position.y);
-    image(tongue, 13, 0);
-    popMatrix();
+      pushMatrix();
+      translate(position.x, position.y);
+      image(tongue, 13, 0);
+      popMatrix();
     }
   }
 

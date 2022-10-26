@@ -2,6 +2,11 @@
 // Written by Um Chae Yoon.
 
 class Durumi extends Animal {
+
+  ///////////////
+  // variables //
+  ///////////////
+
   PImage body,head,pool;
 
   float rot=0;
@@ -22,7 +27,6 @@ class Durumi extends Animal {
     body=loadImage("duru_body.png");
     head=loadImage("duru_head.png");
   }
-
 
   /////////////
   // methods //

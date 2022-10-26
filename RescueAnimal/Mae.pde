@@ -2,10 +2,16 @@
 // Written by Lee Yong Kyu.
 
 class Mae extends Animal {
+
+  ///////////////
+  // variables //
+  ///////////////
+
   PImage body;
 
   float xtime,ytime;
   float incr = 0.01;
+
   //////////////////
   // constructors //
   //////////////////
@@ -22,7 +28,6 @@ class Mae extends Animal {
     xtime=0.0;
     ytime=0.5;
   }
-
 
   /////////////
   // methods //
