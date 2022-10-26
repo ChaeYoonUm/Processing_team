@@ -8,6 +8,10 @@ static final int BACKGROUND_HEIGHT = 5400;
 boolean AL=false;
 animalList AniList;
 
+//여기에 냅다 생성
+animalList animallist = new animalList();
+
+
 
 // Animals.
 Animal[] animals;
@@ -229,16 +233,36 @@ void mousePressed() {
       minBrightness += 1f/ANIMAL_LENGTH;
       minBrightness = constrain(minBrightness, 0, 1);
       AniList.col[i]=true;
+      animals[i].setIsClicked(true);
     }
   }
+  
+  int cnt = 0;
+    for(int i = 0 ; i < 8; i++){
+      if(animals[i].getIsClicked() == true){
+            cnt++;
+      }
+    }
+    if(cnt == 8)
+      ep.isEnd = true;
 
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 
+/*
   if(mouseButton == RIGHT) {
-    ep.isEnd = true;
+    //ep.isEnd = true;
+    int cnt = 0;
+    for(int i = 0 ; i < 8; i++){
+      if(animals[i].getIsClicked() == true){
+            cnt++;
+      }
+    }
+    if(cnt == 8)
+      ep.isEnd = true;
+      
   }
-
+*/
   if(ep.personClick(mouseX, mouseY)) {
     println("Person");
   }

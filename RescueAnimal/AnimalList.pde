@@ -35,8 +35,8 @@ void AL_mousePressed() {
     if(394<mouseY&&mouseY<506)
       Bsize = false;
   }
-  if(25<mouseX&&mouseX<75) {
-    if(25<mouseY&&mouseY<75) {
+  if(17<mouseX&&mouseX<83) {
+    if(17<mouseY&&mouseY<83) {
       if(Freee == false)
       Freee = true;
       else if(Freee == true)
@@ -703,4 +703,5 @@ noTint();
   popMatrix();
   }
 }
+
 }
