@@ -16,6 +16,9 @@ static final int ANIMAL_LENGTH = 8;
 // Epilogue
 Epilogue ep;
 
+// API : EndangeredSpeciesRateAPI
+EndangeredSpeciesRateAPI esrAPI;
+
 // setup
 void setup(){
   size(1600,900);
@@ -25,10 +28,10 @@ void setup(){
   backgroundX=2600;
   backgroundY=2550;
   minBrightness=0;
-  
+
 
   boolean testWithoutDark = false;
-if(testWithoutDark) minBrightness = 1;
+  if(testWithoutDark) minBrightness = 1;
   // Animals.
   animals = new Animal[ANIMAL_LENGTH];
   animals[0] = new Crab(600, 1080);
@@ -89,10 +92,12 @@ if(testWithoutDark) minBrightness = 1;
   animals[7].addBoundaryVertex(-100, 70);
   animals[7].addBoundaryVertex(100, 70);
   animals[7].addBoundaryVertex(100, -150);
-  
+
   AniList.AL_setup();
 
   ep = new Epilogue();
+
+  esrAPI = new EndangeredSpeciesRateAPI();
 }
 
 void draw(){
@@ -110,7 +115,7 @@ void draw(){
   // load pixels
   background.loadPixels();
   loadPixels();
-  
+
   // Draw background
   for(int y = 0; y < height; y++) {
     for(int x = 0; x < width; x++) {
@@ -161,16 +166,22 @@ void draw(){
   }
 
   updatePixels();
-  
+
   pushMatrix();
   translate(50,50);
   scale(0.5);
   noTint();
   image(Free,0,0);
   popMatrix();
-  
+
   if(AniList.Freee==true)
     AniList.AL_draw();
+
+
+
+
+
+    esrAPI.drawAPI();
 }
 
 // Move.
@@ -190,13 +201,13 @@ void keyPressed(){
   backgroundX=constrain(backgroundX,0,8000);
   backgroundY=constrain(backgroundY,0,4500);
   // println(backgroundX + ", " + backgroundY);
-  
+
   if(key==TAB){
     AniList.Freee=false;
-    
+
     AL = !AL;
     if(!AL) return;
-    
+
     if(AniList.backgroundCapture == null) AniList.backgroundCapture = createImage(width, height, RGB);
     AniList.backgroundCapture.loadPixels();
     loadPixels();
@@ -220,7 +231,7 @@ void mousePressed() {
       AniList.col[i]=true;
     }
   }
-  
+
   AniList.AL_mousePressed();
   // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 

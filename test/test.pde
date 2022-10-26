@@ -10,14 +10,20 @@
 //   image(img, 0, 0);
 // }
 
-PImage img;
+// PImage img;
+String[] s;
 void setup() {
   size(1600, 900);
-  img = loadImage("QuestionMark.png");
+  // img = loadImage("QuestionMark.png");
+  s = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
+  for(int i = 0; i < 100; i++) {
+    if(s[i] == null) break;
+    println(s[i]);
+  }
 }
 
 void draw() {
-  image(img, 0, 0);
+  // image(img, 0, 0);
 }
 
 void keyPressed() {
