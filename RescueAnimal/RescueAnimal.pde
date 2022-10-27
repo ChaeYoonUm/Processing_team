@@ -236,33 +236,17 @@ void mousePressed() {
       animals[i].setIsClicked(true);
     }
   }
-  
+
   int cnt = 0;
-    for(int i = 0 ; i < 8; i++){
-      if(animals[i].getIsClicked() == true){
-            cnt++;
-      }
+  for(int i = 0 ; i < 8; i++){
+    if(animals[i].getIsClicked() == true){
+          cnt++;
     }
-    if(cnt == 8)
-      ep.isEnd = true;
+  }
+  if(cnt == 8) ep.isEnd = true;
 
   AniList.AL_mousePressed();
-  // println(animals[3].isMouseOn(mouseX, mouseY, backgroundX, backgroundY) ? "inside" : "outside");
 
-/*
-  if(mouseButton == RIGHT) {
-    //ep.isEnd = true;
-    int cnt = 0;
-    for(int i = 0 ; i < 8; i++){
-      if(animals[i].getIsClicked() == true){
-            cnt++;
-      }
-    }
-    if(cnt == 8)
-      ep.isEnd = true;
-      
-  }
-*/
   if(ep.personClick(mouseX, mouseY)) {
     println("Person");
   }
