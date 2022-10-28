@@ -19,7 +19,7 @@ class EndangeredSpeciesRateAPI {
     lines = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
     line = lines[lines.length-14];
     line = line.substring(18, 29) + "%";
-    updateDelay = 100;
+    updateDelay = 80;
   }
 
   /////////////
