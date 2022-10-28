@@ -1,4 +1,8 @@
 
+///////////////
+// variables //
+///////////////
+
 // background variables.
 PImage background, Free;
 float backgroundX,backgroundY;
@@ -6,12 +10,7 @@ float minBrightness;
 static final int BACKGROUND_WIDTH = 9600;
 static final int BACKGROUND_HEIGHT = 5400;
 boolean AL=false;
-animalList AniList;
-
-//여기에 냅다 생성
-animalList animallist = new animalList();
-
-
+animalList aniList;
 
 // Animals.
 Animal[] animals;
@@ -23,10 +22,13 @@ Epilogue ep;
 // API : EndangeredSpeciesRateAPI
 EndangeredSpeciesRateAPI esrAPI;
 
-// setup
+///////////
+// setup //
+///////////
+
 void setup(){
   size(1600,900);
-  AniList=new animalList();
+  aniList = new animalList();
   background=loadImage("Background.png");
   Free = loadImage("free.png");
   backgroundX=2600;
@@ -97,12 +99,16 @@ void setup(){
   animals[7].addBoundaryVertex(100, 70);
   animals[7].addBoundaryVertex(100, -150);
 
-  AniList.AL_setup();
+  aniList.AL_setup();
 
   ep = new Epilogue();
 
   esrAPI = new EndangeredSpeciesRateAPI();
 }
+
+//////////
+// draw //
+//////////
 
 void draw(){
   if(ep.isEnd) {
@@ -111,8 +117,8 @@ void draw(){
   }
 
   if(AL==true){
-    image(AniList.backgroundCapture, 800, 450);
-    AniList.AL_draw();
+    image(aniList.backgroundCapture, 800, 450);
+    aniList.AL_draw();
     return;
   }
 
@@ -171,6 +177,7 @@ void draw(){
 
   updatePixels();
 
+  // Announcement?
   pushMatrix();
   translate(50,50);
   scale(0.5);
@@ -178,18 +185,20 @@ void draw(){
   image(Free,0,0);
   popMatrix();
 
-  if(AniList.Freee==true)
-    AniList.AL_draw();
+  // draw Announcement
+  if(aniList.Freee==true)
+    aniList.AL_draw();
 
-
-
-
-
-    esrAPI.drawAPI();
+  // draw API
+  esrAPI.drawAPI();
 }
 
-// Move.
+////////////////
+// keyPressed //
+////////////////
+
 void keyPressed(){
+  // Move.
   if(ep.isEnd) return;
   if(key==CODED){
     if(keyCode==UP){
@@ -207,36 +216,41 @@ void keyPressed(){
   // println(backgroundX + ", " + backgroundY);
 
   if(key==TAB){
-    AniList.Freee=false;
+    aniList.Freee=false;
 
     AL = !AL;
     if(!AL) return;
 
-    if(AniList.backgroundCapture == null) AniList.backgroundCapture = createImage(width, height, RGB);
-    AniList.backgroundCapture.loadPixels();
+    if(aniList.backgroundCapture == null) aniList.backgroundCapture = createImage(width, height, RGB);
+    aniList.backgroundCapture.loadPixels();
     loadPixels();
     for(int y = 0; y < height; y++) {
       for(int x = 0 ; x < width; x++) {
         int loc = x + y * width;
-        AniList.backgroundCapture.pixels[loc] = pixels[loc];
+        aniList.backgroundCapture.pixels[loc] = pixels[loc];
       }
     }
-    AniList.backgroundCapture.updatePixels();
+    aniList.backgroundCapture.updatePixels();
   }
-  AniList.AL_keyPressed();
+  aniList.AL_keyPressed();
 }
 
-// Click.
+//////////////////
+// mousePressed //
+//////////////////
+
 void mousePressed() {
+  // animal click
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     if(animals[i].isMouseOn(mouseX, mouseY)) {
       minBrightness += 1f/ANIMAL_LENGTH;
       minBrightness = constrain(minBrightness, 0, 1);
-      AniList.col[i]=true;
+      aniList.col[i]=true;
       animals[i].setIsClicked(true);
     }
   }
 
+  // number of animals that are clicked check
   int cnt = 0;
   for(int i = 0 ; i < 8; i++){
     if(animals[i].getIsClicked() == true){
@@ -245,8 +259,10 @@ void mousePressed() {
   }
   if(cnt == 8) ep.isEnd = true;
 
-  AniList.AL_mousePressed();
+  // Animal List UI click check
+  aniList.AL_mousePressed();
 
+  // In Epilogue, person click check
   if(ep.personClick(mouseX, mouseY)) {
     println("Person");
   }
