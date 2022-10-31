@@ -1,3 +1,5 @@
+// Written by Yang Eun Seo, Nam Eun Su, Eom Chae Yoons
+
 class animalList{
 
 PImage QM1, QM2, iB, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;

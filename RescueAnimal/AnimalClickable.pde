@@ -11,7 +11,7 @@ class AnimalClickable implements IClickable {
 
   ArrayList<Position> polygon = null;
   Position offset;
-  private boolean isClicked;
+  boolean isClicked;
 
   /////////////
   // methods //
@@ -39,7 +39,7 @@ class AnimalClickable implements IClickable {
         if(atX > mouse_x) cnt++;
       }
     }
-    
+
     isClicked = cnt % 2 != 0;
     return isClicked;
   }
@@ -64,7 +64,7 @@ class AnimalClickable implements IClickable {
   }
 
   void setIsClicked(boolean _isClicked) {
-    isClicked = isClicked;
+    isClicked = _isClicked;
   }
 
   boolean getIsClicked() {
