@@ -188,16 +188,17 @@ void draw(){
   image(Free,0,0);
   popMatrix();
   
-  rate=cnt+"/8";
-          
-  pushMatrix();
-  translate(width-40,50);
-  textAlign(CENTER);
-  textSize(40);
-  text(rate,0,0);
-
-  popMatrix();
+  if(ep.isEnd==false){
+    rate=cnt+"/8";
+            
+    pushMatrix();
+    translate(width-40,50);
+    textAlign(CENTER);
+    textSize(40);
+    text(rate,0,0);
   
+    popMatrix();
+  }
 
   // draw Announcement
   if(aniList.Freee==true)
@@ -264,6 +265,7 @@ void mousePressed() {
     }
   }
 
+  cnt=0;
   // number of animals that are clicked check
   for(int i = 0 ; i < 8; i++){
     if(animals[i].getIsClicked() == true){
