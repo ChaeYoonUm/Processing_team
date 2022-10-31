@@ -4,6 +4,9 @@
 ///////////////
 
 // background variables.
+int cnt = 0;
+String rate;
+
 PImage background, Free;
 float backgroundX,backgroundY;
 float minBrightness;
@@ -183,6 +186,17 @@ void draw(){
   noTint();
   image(Free,0,0);
   popMatrix();
+  
+  rate=cnt+"/8";
+          
+  pushMatrix();
+  translate(width-40,50);
+  textAlign(CENTER);
+  textSize(40);
+  text(rate,0,0);
+
+  popMatrix();
+  
 
   // draw Announcement
   if(aniList.Freee==true)
@@ -250,7 +264,6 @@ void mousePressed() {
   }
 
   // number of animals that are clicked check
-  int cnt = 0;
   for(int i = 0 ; i < 8; i++){
     if(animals[i].getIsClicked() == true){
           cnt++;
