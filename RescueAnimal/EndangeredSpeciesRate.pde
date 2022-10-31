@@ -1,4 +1,4 @@
-// Written by Eom Chae Yoon
+// Written by Eom Chae Yoon, Lee Yong Kyu
 
 class EndangeredSpeciesRateAPI {
 
