@@ -1,26 +1,24 @@
-// Written by Eom Chae Yoon
+//// Written by Eom Chae Yoon
+//import processing.sound.*;
+//SoundFile sound = new SoundFile(this, "sound.wav");
+//Sound s = new Sound(this);
 
-// import processing.sound.*;
-// SoundFile sound;
-// Sound s;
-// float e = 0.0;
-// float vol = 1;
-//
-// void setup(){
-//    size(200,200);
-//    sound = new SoundFile(this, "sound.wav");
-//    s = new Sound(this);
+//float e = 0.0;
+//float vol = 1;
+
+//void play() {
 //    sound.loop();
-// }
-//
-// void draw(){
+ 
+//}
+
+
+// void mouseWheel(MouseEvent event){
+//   e += event.getCount();
+     
 //   vol += -e*0.1f;
 //   vol = constrain(vol, 0, 1);
-//
+
 //   s.volume(vol);
-//
-// }
-//
-// void mouseWheel(MouseEvent event){
-//     e += event.getCount();
+
+ 
 // }

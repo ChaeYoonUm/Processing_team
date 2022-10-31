@@ -4,8 +4,19 @@
 ///////////////
 
 // background variables.
+
 int cnt = 0;
 String rate;
+
+import processing.sound.*;
+SoundFile sound;
+Sound s;
+float e = 0.0;
+float vol = 1;
+
+SoundFile devas_sound;
+Sound devas_s;
+
 
 PImage background, Free;
 float backgroundX,backgroundY;
@@ -106,6 +117,18 @@ void setup(){
   ep = new Epilogue();
 
   esrAPI = new EndangeredSpeciesRateAPI();
+
+  // background sound setup
+  e = 0.0;
+  vol = 1;
+  sound = new SoundFile(this, "background.mp3");
+  s = new Sound(this);
+  sound.loop();
+    devas_sound = new SoundFile(this, "deepblue.wav");
+//    devas_s = new Sound(this);
+
+  // devastated background sound setup
+
 }
 
 //////////
@@ -115,6 +138,11 @@ void setup(){
 void draw(){
   if(ep.isEnd) {
     ep.run();
+
+    if(devas_sound.isPlaying() == false && ep.isDevastated == true){
+      sound.pause();
+      devas_sound.loop();
+    }
     return;
   }
 
@@ -186,9 +214,9 @@ void draw(){
   noTint();
   image(Free,0,0);
   popMatrix();
-  
+
   rate=cnt+"/8";
-          
+
   pushMatrix();
   translate(width-40,50);
   textAlign(CENTER);
@@ -196,7 +224,7 @@ void draw(){
   text(rate,0,0);
 
   popMatrix();
-  
+
 
   // draw Announcement
   if(aniList.Freee==true)
@@ -280,23 +308,13 @@ void mousePressed() {
   }
 }
 
+ void mouseWheel(MouseEvent event){
+   e += event.getCount();
 
-void Freee_operator() {
-  if(AniList.Freee == true){
-    pushMatrix();
-    translate(50,50);
-    scale(0);
-    image(Free,0,0);
-    popMatrix();
-    //AniList.Freee = false;
-    }
-  else if(AniList.Freee == false){
-     pushMatrix();
-     translate(50, 50);
-     scale(0.5);
-     image(Free,0,0);
-     popMatrix();
-     //AniList.Freee = true;
-    }
+   vol += -e*0.1f;
+   vol = constrain(vol, 0, 1);
 
-}
+   s.volume(vol);
+
+
+ }
