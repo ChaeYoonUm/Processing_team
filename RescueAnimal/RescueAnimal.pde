@@ -5,9 +5,6 @@
 
 // background variables.
 
-int cnt = 0;
-String rate;
-
 import processing.sound.*;
 SoundFile sound;
 Sound s;
@@ -16,6 +13,9 @@ float vol = 1;
 
 SoundFile devas_sound;
 Sound devas_s;
+
+int cnt = 0;
+String rate;
 
 
 PImage background, Free;
@@ -124,7 +124,7 @@ void setup(){
   sound = new SoundFile(this, "background.mp3");
   s = new Sound(this);
   sound.loop();
-    devas_sound = new SoundFile(this, "deepblue.wav");
+  devas_sound = new SoundFile(this, "deepblue.wav");
 //    devas_s = new Sound(this);
 
   // devastated background sound setup
@@ -136,6 +136,7 @@ void setup(){
 //////////
 
 void draw(){
+  //println("Volume? " + vol);
   if(ep.isEnd) {
     ep.run();
 
@@ -291,6 +292,7 @@ void mousePressed() {
     }
   }
 
+  cnt = 0;
   // number of animals that are clicked check
   for(int i = 0 ; i < 8; i++){
     if(animals[i].getIsClicked() == true){

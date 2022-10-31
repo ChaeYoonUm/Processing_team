@@ -240,7 +240,7 @@ class Epilogue {
     }
     image(partialBackDev, 0, 0);
     if(p.isClicked) p.face_condition++;
-    println(p.face_condition);
+    //println(p.face_condition);
     p.drawAnimal();
     if(p.face_condition > 2 && p.face_condition <= 4) {
       // word
