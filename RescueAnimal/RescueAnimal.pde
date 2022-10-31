@@ -4,6 +4,7 @@
 ///////////////
 
 // background variables.
+
 import processing.sound.*;
 SoundFile sound;
 Sound s;
@@ -12,6 +13,10 @@ float vol = 1;
 
 SoundFile devas_sound;
 Sound devas_s;
+
+int cnt = 0;
+String rate;
+
 
 PImage background, Free;
 float backgroundX,backgroundY;
@@ -113,7 +118,7 @@ void setup(){
   ep = new Epilogue();
 
   esrAPI = new EndangeredSpeciesRateAPI();
-  
+
   // background sound setup
   e = 0.0;
   vol = 1;
@@ -122,9 +127,9 @@ void setup(){
   sound.loop();
     devas_sound = new SoundFile(this, "deepblue.wav");
 //    devas_s = new Sound(this);
-  
+
   // devastated background sound setup
-  
+
 }
 
 //////////
@@ -134,7 +139,7 @@ void setup(){
 void draw(){
   if(ep.isEnd) {
     ep.run();
-    
+
     if(devas_sound.isPlaying() == false && ep.isDevastated == true){
       sound.pause();
       devas_sound.loop();
@@ -211,6 +216,17 @@ void draw(){
   image(Free,0,0);
   popMatrix();
 
+  rate=cnt+"/8";
+
+  pushMatrix();
+  translate(width-40,50);
+  textAlign(CENTER);
+  textSize(40);
+  text(rate,0,0);
+
+  popMatrix();
+
+
   // draw Announcement
   if(aniList.Freee==true)
     aniList.AL_draw();
@@ -277,7 +293,6 @@ void mousePressed() {
   }
 
   // number of animals that are clicked check
-  int cnt = 0;
   for(int i = 0 ; i < 8; i++){
     if(animals[i].getIsClicked() == true){
           cnt++;
@@ -296,11 +311,11 @@ void mousePressed() {
 
  void mouseWheel(MouseEvent event){
    e += event.getCount();
-     
+
    vol += -e*0.1f;
    vol = constrain(vol, 0, 1);
 
    s.volume(vol);
 
- 
+
  }
