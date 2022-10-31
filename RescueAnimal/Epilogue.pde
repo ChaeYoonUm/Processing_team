@@ -1,5 +1,4 @@
 // Written by Lee Yong Kyu, Yang Eun Seo
-
 class Epilogue {
 
   ///////////////
@@ -7,6 +6,7 @@ class Epilogue {
   ///////////////
 
   boolean isEnd;
+  boolean isDevastated = false;
 
   // takePicture
   PImage animalsPicture, backgroundPicture, backgroundPicDestination;
@@ -213,7 +213,8 @@ class Epilogue {
   }
 
   // for condition 4
-  void devastated() {
+  void devastated() {    
+    isDevastated = true;
     pushMatrix();
     translate(width/2, height/2);
     
@@ -239,7 +240,7 @@ class Epilogue {
     }
     image(partialBackDev, 0, 0);
     if(p.isClicked) p.face_condition++;
-    println(p.face_condition);
+    //println(p.face_condition);
     p.drawAnimal();
     if(p.face_condition > 2 && p.face_condition <= 4) {
       // word
