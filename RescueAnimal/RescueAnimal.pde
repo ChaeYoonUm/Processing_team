@@ -4,6 +4,15 @@
 ///////////////
 
 // background variables.
+import processing.sound.*;
+SoundFile sound;
+Sound s;
+float e = 0.0;
+float vol = 1;
+
+SoundFile devas_sound;
+Sound devas_s;
+
 PImage background, Free;
 float backgroundX,backgroundY;
 float minBrightness;
@@ -104,6 +113,18 @@ void setup(){
   ep = new Epilogue();
 
   esrAPI = new EndangeredSpeciesRateAPI();
+  
+  // background sound setup
+  e = 0.0;
+  vol = 1;
+  sound = new SoundFile(this, "background.mp3");
+  s = new Sound(this);
+  sound.loop();
+    devas_sound = new SoundFile(this, "deepblue.wav");
+//    devas_s = new Sound(this);
+  
+  // devastated background sound setup
+  
 }
 
 //////////
@@ -113,6 +134,11 @@ void setup(){
 void draw(){
   if(ep.isEnd) {
     ep.run();
+    
+    if(devas_sound.isPlaying() == false && ep.isDevastated == true){
+      sound.pause();
+      devas_sound.loop();
+    }
     return;
   }
 
@@ -267,3 +293,14 @@ void mousePressed() {
     println("Person");
   }
 }
+
+ void mouseWheel(MouseEvent event){
+   e += event.getCount();
+     
+   vol += -e*0.1f;
+   vol = constrain(vol, 0, 1);
+
+   s.volume(vol);
+
+ 
+ }
