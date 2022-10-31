@@ -1,3 +1,5 @@
+// Written by Eom Chae Yoon
+
 // import processing.sound.*;
 // SoundFile sound;
 // Sound s;

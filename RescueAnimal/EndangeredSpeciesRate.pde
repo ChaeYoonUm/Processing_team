@@ -1,13 +1,40 @@
+// Written by Eom Chae Yoon
+
 class EndangeredSpeciesRateAPI {
+
+  ///////////////
+  // variables //
+  ///////////////
+
+  String[] lines;
+  String line;
+  int updateDelay;
+
+
+  //////////////////
+  // constructors //
+  //////////////////
+
+  EndangeredSpeciesRateAPI() {
+    lines = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
+    line = lines[lines.length-14];
+    line = line.substring(18, 29) + "%";
+    updateDelay = 80;
+  }
+
   /////////////
   // methods //
   /////////////
 
   void drawAPI(){
-    String[] lines = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
-    // println("there are " + lines.length + " lines");
-    String line = lines[lines.length-14];
-    line = line.substring(18, 29) + "%";
+    if(updateDelay > 100){
+      lines = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
+      line = lines[lines.length-14];
+      updateDelay = 0;
+      line = line.substring(18, 29) + "%";
+      println("UPdate");
+    }
+
     pushMatrix();
     translate(width/2, height-20);
 
@@ -16,6 +43,8 @@ class EndangeredSpeciesRateAPI {
     text(line, 0, 0);
 
     popMatrix();
+
+    updateDelay++;
   }
 
 }

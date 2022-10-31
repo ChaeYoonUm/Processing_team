@@ -1,5 +1,6 @@
 // Sak.pde
 // Written by Nam Eun Su.
+
 class Sak extends Animal {
 
   ///////////////

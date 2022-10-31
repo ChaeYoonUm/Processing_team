@@ -1,5 +1,5 @@
-// Crab.pde
-// Written by Yang Eun Seo.
+// Person.pde
+// Written by Lee Yong Kyu.
 
 class Person extends Animal {
 

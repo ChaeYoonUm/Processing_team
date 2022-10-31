@@ -1,3 +1,5 @@
+// Written by Yang Eun Seo, Nam Eun Su, Eom Chae Yoons
+
 class animalList{
 
 PImage QM1, QM2, iB, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
@@ -33,8 +35,8 @@ void AL_mousePressed() {
     if(394<mouseY&&mouseY<506)
       Bsize = false;
   }
-  if(25<mouseX&&mouseX<75) {
-    if(25<mouseY&&mouseY<75) {
+  if(17<mouseX&&mouseX<83) {
+    if(17<mouseY&&mouseY<83) {
       if(Freee == false)
       Freee = true;
       else if(Freee == true)
@@ -122,7 +124,7 @@ void AL_setup() {
   MeaD = loadImage("meaD.png");
   DoromiD = loadImage("doromiD.png");
   SakD = loadImage("sakD.png");
-  
+
   nam_button=loadImage("nam_button.png");
   sak_button=loadImage("sak_button.png");
   noru_button=loadImage("noru_button.png");
@@ -131,15 +133,15 @@ void AL_setup() {
   crab_button=loadImage("crab_button.png");
   mae_button=loadImage("mae_button.png");
   gasi_button=loadImage("gasi_button.png");
-  
+
   firAniImg=QM1;
   secAniImg=QM2;
-  
+
   col = new boolean[8];
 }
 
 void AL_draw() {
-  
+
   imageMode(CENTER);
   image(Ww, width/2, height/2);
   image(Rt, 230, 420);
@@ -250,25 +252,25 @@ void AL_draw() {
     image(Bird, 0, 0);
     popMatrix();
   }
-  
+
     pushMatrix();
   translate(1460, 450);
    scale(1);
    noTint();
    image(iB, 0, 0);
    popMatrix();
-   
+
    if(al1==true){
      if(col[4]==false)
      firAniImg=QM1;
      else if(col[4]==true)
      firAniImg=nam_button;
-     
+
      if(col[7] == false)
        secAniImg=QM2;
       else if(col[7] == true)
       secAniImg=frog_button;
-     
+
      if(Q1size==true){
        pushMatrix();
       translate(550, 400);
@@ -291,18 +293,18 @@ void AL_draw() {
       }
       popMatrix();
      }
-     
+
    }else if(al2==true){
      if(col[5] == false)
      firAniImg=QM1;
      else if(col[5] == true)
      firAniImg=noru_button;
-     
+
      if(col[6] == false)
      secAniImg=QM2;
      else if(col[6] == true)
      secAniImg=sak_button;
-     
+
      if(Q1size==true){
        pushMatrix();
       translate(550, 400);
@@ -326,18 +328,18 @@ void AL_draw() {
       }
       popMatrix();
      }
-     
+
    }else if(al3==true){
      if(col[0] == false)
      firAniImg=QM1;
      else if(col[0] == true)
      firAniImg=crab_button;
-     
+
      if(col[2] == false)
      secAniImg=QM2;
      else if(col[2] == true)
      secAniImg=gasi_button;
-     
+
      if(Q1size==true){
        pushMatrix();
       translate(550, 400);
@@ -367,12 +369,12 @@ void AL_draw() {
      firAniImg=QM1;
       else if(col[1] == true)
       firAniImg=duru_button;
-      
+
       if(col[3] == false)
       secAniImg=QM2;
        else if(col[3] == true)
          secAniImg=mae_button;
-         
+
        if(Q1size==true){
        pushMatrix();
       translate(550, 400);
@@ -408,7 +410,7 @@ void AL_draw() {
   noTint();
   image(Bm, 0, 0);
   popMatrix();
-  
+
   pushMatrix();
     translate(1230, 450);
     scale(1);
@@ -499,12 +501,12 @@ if(al1==true){
       firAniImg=QM1;
     else if(col[4]==true)
       firAniImg=nam_button;
-    
+
     if(col[7] == false)
        secAniImg=QM2;
       else if(col[7] == true)
         secAniImg=frog_button;
-      
+
   if(Q1size==true){
     pushMatrix();//남생이
       translate(450, 450);
@@ -514,7 +516,7 @@ if(al1==true){
       }
       else if(col[4] == true)
       image(NamF, 300, -80);
-      
+
       popMatrix();
 if(col[4]==true){
       pushMatrix();
@@ -549,12 +551,12 @@ else if(al2==true){
      firAniImg=QM1;
   else if(col[5] == true)
      firAniImg=noru_button;
-     
+
   if(col[6] == false)
      secAniImg=QM2;
   else if(col[6] == true)
      secAniImg=sak_button;
-     
+
   if(Q1size==true){
       pushMatrix();//노루
       translate(450, 450);
@@ -582,7 +584,7 @@ else if(al2==true){
       else if(col[6] == true)
         image(SakF, 250, -80);
       popMatrix();
-      
+
       if(col[6]==true){
         pushMatrix();
         translate(1225, 450);
@@ -597,12 +599,12 @@ else if(al3==true){
      firAniImg=QM1;
   else if(col[0] == true)
      firAniImg=gasi_button;
-     
+
   if(col[2] == false)
      secAniImg=QM2;
   else if(col[2] == true)
      secAniImg=gasi_button;
-  
+
   if(Q1size==true){
      pushMatrix();
       translate(450, 450);
@@ -645,12 +647,12 @@ else if(al4==true){
      firAniImg=QM1;
  else if(col[1] == true)
      firAniImg=duru_button;
-      
+
    if(col[3] == false)
       secAniImg=QM2;
    else if(col[3] == true)
       secAniImg=mae_button;
-  
+
   if(Q1size==true){
       pushMatrix();
       translate(450, 450);
@@ -672,7 +674,7 @@ if(col[1]==true){
   else if(Q2size==true){
      pushMatrix();
       translate(450, 450);
-      scale(0.65);      
+      scale(0.65);
       if(col[3] == false)
         image(Mea, 200, -80);
       else if(col[3] == true)
@@ -701,4 +703,5 @@ noTint();
   popMatrix();
   }
 }
+
 }

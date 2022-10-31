@@ -1,3 +1,5 @@
+// Written by Lee Yong Kyu, Yang Eun Seo
+
 class Epilogue {
 
   ///////////////
@@ -22,7 +24,7 @@ class Epilogue {
   PImage backgroundDevastated, partialBackDev;
   String devastating, dialogue1_1, dialogue1_2, dialogue2;
   Person p;
-  
+
   PFont fontHuman, fontMsg;
 
   // endingMsg
