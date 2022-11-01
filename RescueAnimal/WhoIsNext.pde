@@ -1,4 +1,4 @@
-// RescueAnimal.pde
+// WhoIsNext.pde
 // Main Sketch.
 // Play music, draw background, API, UI, animals, and etc... while the 8 animals are not found.
 // Written by whole members.
