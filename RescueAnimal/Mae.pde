@@ -56,9 +56,6 @@ class Mae extends Animal {
     xtime+=incr;
     ytime+=incr;
 
-    // position.x=constrain(position.x, 6800, BACKGROUND_WIDTH-200);
-    // position.y=constrain(position.y, 2800, 3200);
-    // setPosition(position.x, position.y);
     setOffset(position);
   }
 }

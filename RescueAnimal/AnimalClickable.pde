@@ -24,7 +24,7 @@ class AnimalClickable implements IClickable {
 
   boolean isMouseOn(int mouse_x, int mouse_y) {
     // https://bowbowbow.tistory.com/24
-    // use this.
+    // used this algorithm
     if(isClicked) return false;
 
     int cnt = 0;
@@ -44,12 +44,14 @@ class AnimalClickable implements IClickable {
     return isClicked;
   }
 
+  // To make clickable boundary.
   void addBoundaryVertex(int boundary_x, int boundary_y) {
     if(polygon == null) polygon = new ArrayList<Position>(1);
     Position pos = new Position(boundary_x, boundary_y);
     polygon.add(pos);
   }
 
+  // Show above boundary.
   void showBoundary() {
     // draw shape
     pushMatrix();
@@ -63,10 +65,12 @@ class AnimalClickable implements IClickable {
     popMatrix();
   }
 
+  // Set this animal as clicked.
   void setIsClicked(boolean _isClicked) {
     isClicked = _isClicked;
   }
 
+  // Return which this was clicked.
   boolean getIsClicked() {
     return isClicked;
   }

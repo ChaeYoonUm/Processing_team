@@ -1,144 +1,151 @@
+// AnimalList.pde
+// AnimalList class will show the list and description of animals using "tab" key.
 // Written by Yang Eun Seo, Nam Eun Su, Eom Chae Yoons
 
-class animalList{
+class AnimalList{
 
-PImage QM1, QM2, iB, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
-PImage NoruF, GaeF, NamF, FrogF, GasiF, MeaF, DoromiF, SakF;
-PImage NoruD, GaeD, NamD, FrogD, GasiD, MeaD, DoromiD, SakD;
-PImage noru_button,mae_button,sak_button,frog_button,crab_button,gasi_button,duru_button,nam_button;
-PImage firAniImg,secAniImg;
+  PImage QM1, QM2, iB, Ww, Bm, Rt, Bear, Bird, Fish, Ig, instruction, Noru, Gae, Nam, Frog, Gasi, Mea, Doromi, Sak, Free, How;
+  PImage NoruF, GaeF, NamF, FrogF, GasiF, MeaF, DoromiF, SakF;
+  PImage NoruD, GaeD, NamD, FrogD, GasiD, MeaD, DoromiD, SakD;
+  PImage noru_button,mae_button,sak_button,frog_button,crab_button,gasi_button,duru_button,nam_button;
+  PImage firAniImg,secAniImg;
 
-boolean Q1size = true;
-boolean Q2size = false;
+  boolean Q1size = true;
+  boolean Q2size = false;
 
-boolean al1 = true;
-boolean al2 = false;
-boolean al3 = false;
-boolean al4 = false;
+  boolean al1 = true;
+  boolean al2 = false;
+  boolean al3 = false;
+  boolean al4 = false;
 
-//boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들을 다룬다.)
-boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 큰 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
-boolean Freee = true; // 왼쪽 위 ? 모양 (시작할 때 사용설명서 띄우기)
+  //boolean Tada = false; //창 열기(->이렇게 생긴 거) (여기서는 al들을 다룬다.)
+  boolean Bsize = false; //Bottom 사이즈 (창 열면 작은 사이즈, 아니면 큰 사이즈 / 여기서는 기본 조작 버튼을 다룬다.)
+  boolean Freee = true; // 왼쪽 위 ? 모양 (시작할 때 사용설명서 띄우기)
 
-boolean[] col;
+  boolean[] col;
 
-// Background Capture
-PImage backgroundCapture;
+  // Background Capture
+  PImage backgroundCapture;
 
-void AL_mousePressed() {
-  if(1428<mouseX&&mouseX<1492) {
-    if(394<mouseY&&mouseY<506) {
-      Bsize = true;
+  // mouse pressed for animal list
+  void AL_mousePressed() {
+    if(1428<mouseX&&mouseX<1492) {
+      if(394<mouseY&&mouseY<506) {
+        Bsize = true;
+      }
     }
-  }
-  if(918<mouseX&&mouseX<983) {
-    if(394<mouseY&&mouseY<506)
-      Bsize = false;
-  }
-  if(17<mouseX&&mouseX<83) {
-    if(17<mouseY&&mouseY<83) {
-      if(Freee == false)
-      Freee = true;
-      else if(Freee == true)
-      Freee = false;
+    if(918<mouseX&&mouseX<983) {
+      if(394<mouseY&&mouseY<506)
+        Bsize = false;
     }
-  }
-}
-
-void AL_keyPressed() {
-  if(key == CODED) {
-    // f1's ASCII code is 112
-    if(keyCode == 112) {
-      if(Q1size == false) {
-      Q1size = true;  Q2size = false;
+    if(17<mouseX&&mouseX<83) {
+      if(17<mouseY&&mouseY<83) {
+        if(Freee == false)
+        Freee = true;
+        else if(Freee == true)
+        Freee = false;
       }
     }
   }
+
+  // key pressed for animal list
+  void AL_keyPressed() {
     if(key == CODED) {
-    // f1's ASCII code is 113
-    if(keyCode == 113) {
-      if(Q2size == false) {
-      Q2size = true;  Q1size = false;
+      // f1's ASCII code is 112
+      if(keyCode == 112) {
+        if(Q1size == false) {
+          Q1size = true;
+          Q2size = false;
+        }
+      }
+    }
+    if(key == CODED) {
+      // f1's ASCII code is 113
+      if(keyCode == 113) {
+        if(Q2size == false) {
+          Q2size = true;
+          Q1size = false;
+        }
+      }
+    }
+
+    if(key == '1') {
+      if(al1 == false) {
+        al1 = true; al2 = false; al3 = false; al4 = false;
+      }
+    }
+    else if(key == '2') {
+      if(al2 == false) {
+        al1 = false; al2 = true; al3 = false; al4 = false;
+      }
+    }
+    else if(key == '3') {
+      if(al3 == false) {
+        al1 = false; al2 = false; al3 = true; al4 = false;
+      }
+    }
+    else if(key == '4') {
+      if(al4 == false) {
+        al1 = false; al2 = false; al3 = false; al4 = true;
       }
     }
   }
 
-  if(key == '1') {
-    if(al1 == false) {
-      al1 = true; al2 = false; al3 = false; al4 = false;
-      }
+  // setup for animal list
+  void AL_setup() {
+    QM1 = loadImage("QuestionMark1.png");
+    QM2 = loadImage("QuestionMark2.png");
+    iB = loadImage("instructionB.png");
+    Ww = loadImage("window.png");
+    Bm = loadImage("Bottom.png");
+    Rt = loadImage("Right.png");
+    Bear = loadImage("bear.png");
+    Bird = loadImage("bird.png");
+    Fish = loadImage("fish.png");
+    Ig = loadImage("ig.png");
+    instruction = loadImage("instruction.png");
+    Noru = loadImage("noru.png");
+    Gae = loadImage("gae.png");
+    Nam = loadImage("nam.png");
+    Frog = loadImage("frog.png");
+    Gasi = loadImage("gasi.png");
+    Mea = loadImage("mea.png");
+    Doromi = loadImage("doromi.png");
+    Sak = loadImage("sak.png");
+    NoruD = loadImage("noruD.png");
+    SakD = loadImage("sakD.png");
+    How = loadImage("howto.png");
+    NoruF = loadImage("noruF.png");
+    GaeF = loadImage("gaeF.png");
+    NamF = loadImage("namF.png");
+    FrogF = loadImage("frogF.png");
+    GasiF = loadImage("gasiF.png");
+    MeaF = loadImage("meaF.png");
+    DoromiF = loadImage("doromiF.png");
+    SakF = loadImage("sakF.png");
+    NoruD = loadImage("noruD.png");
+    GaeD = loadImage("gaeD.png");
+    NamD = loadImage("namD.png");
+    FrogD = loadImage("frogD.png");
+    GasiD = loadImage("gasiD.png");
+    MeaD = loadImage("meaD.png");
+    DoromiD = loadImage("doromiD.png");
+    SakD = loadImage("sakD.png");
+
+    nam_button=loadImage("nam_button.png");
+    sak_button=loadImage("sak_button.png");
+    noru_button=loadImage("noru_button.png");
+    duru_button=loadImage("duru_button.png");
+    frog_button=loadImage("frog_button.png");
+    crab_button=loadImage("crab_button.png");
+    mae_button=loadImage("mae_button.png");
+    gasi_button=loadImage("gasi_button.png");
+
+    firAniImg=QM1;
+    secAniImg=QM2;
+
+    col = new boolean[8];
   }
-  else if(key == '2') {
-    if(al2 == false) {
-      al1 = false; al2 = true; al3 = false; al4 = false;
-      }
-  }
-  else if(key == '3') {
-    if(al3 == false) {
-      al1 = false; al2 = false; al3 = true; al4 = false;
-      }
-  }
-  else if(key == '4') {
-    if(al4 == false) {
-      al1 = false; al2 = false; al3 = false; al4 = true;
-      }
-    }
-}
-
-void AL_setup() {
-  QM1 = loadImage("QuestionMark1.png");
-  QM2 = loadImage("QuestionMark2.png");
-  iB = loadImage("instructionB.png");
-  Ww = loadImage("window.png");
-  Bm = loadImage("Bottom.png");
-  Rt = loadImage("Right.png");
-  Bear = loadImage("bear.png");
-  Bird = loadImage("bird.png");
-  Fish = loadImage("fish.png");
-  Ig = loadImage("ig.png");
-  instruction = loadImage("instruction.png");
-  Noru = loadImage("noru.png");
-  Gae = loadImage("gae.png");
-  Nam = loadImage("nam.png");
-  Frog = loadImage("frog.png");
-  Gasi = loadImage("gasi.png");
-  Mea = loadImage("mea.png");
-  Doromi = loadImage("doromi.png");
-  Sak = loadImage("sak.png");
-  NoruD = loadImage("noruD.png");
-  SakD = loadImage("sakD.png");
-  How = loadImage("howto.png");
-  NoruF = loadImage("noruF.png");
-  GaeF = loadImage("gaeF.png");
-  NamF = loadImage("namF.png");
-  FrogF = loadImage("frogF.png");
-  GasiF = loadImage("gasiF.png");
-  MeaF = loadImage("meaF.png");
-  DoromiF = loadImage("doromiF.png");
-  SakF = loadImage("sakF.png");
-  NoruD = loadImage("noruD.png");
-  GaeD = loadImage("gaeD.png");
-  NamD = loadImage("namD.png");
-  FrogD = loadImage("frogD.png");
-  GasiD = loadImage("gasiD.png");
-  MeaD = loadImage("meaD.png");
-  DoromiD = loadImage("doromiD.png");
-  SakD = loadImage("sakD.png");
-
-  nam_button=loadImage("nam_button.png");
-  sak_button=loadImage("sak_button.png");
-  noru_button=loadImage("noru_button.png");
-  duru_button=loadImage("duru_button.png");
-  frog_button=loadImage("frog_button.png");
-  crab_button=loadImage("crab_button.png");
-  mae_button=loadImage("mae_button.png");
-  gasi_button=loadImage("gasi_button.png");
-
-  firAniImg=QM1;
-  secAniImg=QM2;
-
-  col = new boolean[8];
-}
 
 void AL_draw() {
 

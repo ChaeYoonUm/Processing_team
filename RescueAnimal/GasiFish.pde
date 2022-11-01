@@ -49,9 +49,6 @@ class GasiFish extends Animal {
     tx += 0.03;
     position.y = map(noise(ty), 0, 1, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
     ty += 0.02;
-    // position.x = constrain(position.x, BACKGROUND_WIDTH-1200, BACKGROUND_WIDTH-200);
-    // position.y = constrain(position.y, -0.8*(position.x-9000)+4500, BACKGROUND_HEIGHT-100);
-    // setPosition(position.x, position.y);
     setOffset(position);
   }
 }

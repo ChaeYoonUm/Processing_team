@@ -1,4 +1,7 @@
+// Epilogue.pde
+// It will mainly used after the whole animals are found.
 // Written by Lee Yong Kyu, Yang Eun Seo
+
 class Epilogue {
 
   ///////////////
@@ -31,9 +34,8 @@ class Epilogue {
   PGraphics pg_Ending;
   float pgE_y, pgE_y_speed;
   static final float MAX_PGE_Y=-1300;
-  
+
   // 0 = not ended
-  // 1 = gather
   // 2 = takePicture
   // 3 = monologue
   // 4 = devastated
@@ -47,7 +49,7 @@ class Epilogue {
   Epilogue() {
     fontMsg = createFont("The Barimhare.ttf", 128);
     fontHuman = createFont("adrip1.ttf", 128);
-    
+
     isEnd = false;
     condition = 2;
 
@@ -77,7 +79,8 @@ class Epilogue {
     dialogue1_2 = "all the animals are gone,";
     dialogue2 = "Who is next?";
     p = null;
-    
+
+    // endingMsg
     pgE_y_speed = 2f;
   }
 
@@ -85,18 +88,12 @@ class Epilogue {
   // methods //
   /////////////
 
-  // for condition 1
-  // void gather() {
-  //   d
-  // }
-
   // for condition 2
   // it takes 0-1 domain and returns 0-1
   private float shutterFunction(float par) {
     float ret;
     if(par <= 0.5f) ret = 4*par*par;  // for domain 0-0.5
     else ret = 2 / (MAX_BRIGHTNESS - 1) * (par - 1) * (par - 1) - 0.8 / (MAX_BRIGHTNESS - 1);  // for domain 0.5-1
-    // println(ret);
     return ret;
   }
 
@@ -116,7 +113,6 @@ class Epilogue {
           }
         }
         backgroundPicture.updatePixels();
-        // println("ImageCreated");
       }
       // bright change
       shutter += shutterSpeed;
@@ -203,21 +199,21 @@ class Epilogue {
       textAlign(CENTER);
       text(devastating, 0, 0);
     }else {
-      
+
       condition = 4;
     }
     popMatrix();
-      
-    
-    
+
+
+
   }
 
   // for condition 4
-  void devastated() {    
+  void devastated() {
     isDevastated = true;
     pushMatrix();
     translate(width/2, height/2);
-    
+
     if(partialBackDev == null) {
       partialBackDev = createImage(width, height, RGB);
       partialBackDev.loadPixels();
@@ -256,7 +252,7 @@ class Epilogue {
     popMatrix();
   }
 
-  // for condition
+  // for condition 5
   void endingMsg() {
       background(0);
       textAlign(CORNER);
@@ -264,7 +260,7 @@ class Epilogue {
       textSize(150);
       fill(196,11,19);
       text(dialogue2,width/2+50,height/2+50);
-      
+
       pushMatrix();
       translate(width/4,height/2);
       if(pg_Ending==null){
@@ -293,15 +289,15 @@ class Epilogue {
     }else {
       condition=6;
     }
-    
+
     popMatrix();
-    
+
   }
-  
+
   void endingFin(){
     background(0);
     delay(1000);
-    
+
     textFont(fontHuman);
     textSize(300);
     fill(196,11,19);
@@ -309,7 +305,7 @@ class Epilogue {
     text(dialogue2,width/2,height/2+100);
   }
 
-  // isEnd면 run을 실행
+  // executed when isEnd = true
   void run() {
     if(condition == 1) {
       // gather();
@@ -322,16 +318,17 @@ class Epilogue {
     } else if(condition == 5) {
       endingMsg();
     } else if(condition == 6){
-      endingFin(); 
+      endingFin();
     }
   }
 
+  // return whether a person is clicked.
   boolean personClick(int mx, int my) {
     if(p == null) return false;
     boolean ret = p.isMouseOn(mx, my);
 
     if(ret == false) return ret;
-    
+
     // mouse clicked the person
     //println(mx + ", " + my);
     p.face_condition++;

@@ -1,3 +1,7 @@
+// RescueAnimal.pde
+// Main Sketch.
+// Play music, draw background, API, UI, animals, and etc... while the 8 animals are not found.
+// Written by whole members.
 
 ///////////////
 // variables //
@@ -24,7 +28,7 @@ float minBrightness;
 static final int BACKGROUND_WIDTH = 9600;
 static final int BACKGROUND_HEIGHT = 5400;
 boolean AL=false;
-animalList aniList;
+AnimalList aniList;
 
 // Animals.
 Animal[] animals;
@@ -42,7 +46,7 @@ EndangeredSpeciesRateAPI esrAPI;
 
 void setup(){
   size(1600,900);
-  aniList = new animalList();
+  aniList = new AnimalList();
   background=loadImage("Background.png");
   Free = loadImage("free.png");
   backgroundX=2600;
@@ -126,10 +130,6 @@ void setup(){
   s = new Sound(this);
   sound.loop();
   devas_sound = new SoundFile(this, "deepblue.wav");
-//    devas_s = new Sound(this);
-
-  // devastated background sound setup
-
 }
 
 //////////
@@ -137,7 +137,7 @@ void setup(){
 //////////
 
 void draw(){
-  //println("Volume? " + vol);
+  // the game was end?
   if(ep.isEnd) {
     ep.run();
 
@@ -145,7 +145,7 @@ void draw(){
       sound.pause();
       devas_sound.loop();
     }
-    return;
+    return; // execute only epilogue.
   }
 
   if(AL==true){
@@ -174,7 +174,6 @@ void draw(){
   translate(-backgroundX, -backgroundY);
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     animals[i].drawAnimal();
-     //animals[i].showBoundary();
   }
 
   popMatrix();
@@ -217,6 +216,7 @@ void draw(){
   image(Free,0,0);
   popMatrix();
 
+  // draw animal found rate
   rate=cnt+"/8";
 
   pushMatrix();
@@ -229,8 +229,7 @@ void draw(){
 
 
   // draw Announcement
-  if(aniList.Freee==true)
-    aniList.AL_draw();
+  if(aniList.Freee==true) aniList.AL_draw();
 
   // draw API
   esrAPI.drawAPI();
@@ -256,8 +255,8 @@ void keyPressed(){
   }
   backgroundX=constrain(backgroundX,0,8000);
   backgroundY=constrain(backgroundY,0,4500);
-  // println(backgroundX + ", " + backgroundY);
 
+  // toggle animal list UI
   if(key==TAB){
     aniList.Freee=false;
 
@@ -283,7 +282,7 @@ void keyPressed(){
 //////////////////
 
 void mousePressed() {
-  // animal click
+  // animal click. related with flashlight and animal found rate.
   for(int i = 0; i < ANIMAL_LENGTH; i++) {
     if(animals[i].isMouseOn(mouseX, mouseY)) {
       minBrightness += 1f/ANIMAL_LENGTH;
@@ -311,6 +310,7 @@ void mousePressed() {
   }
 }
 
+// volume control
  void mouseWheel(MouseEvent event){
    e += event.getCount();
 

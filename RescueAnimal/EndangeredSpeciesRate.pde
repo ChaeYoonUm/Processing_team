@@ -1,3 +1,5 @@
+// EndangeredSpeciesRate.pde
+// EndangeredSpeciesRateAPI class will load API and draw it.
 // Written by Eom Chae Yoon, Lee Yong Kyu
 
 class EndangeredSpeciesRateAPI {
@@ -27,12 +29,13 @@ class EndangeredSpeciesRateAPI {
   /////////////
 
   void drawAPI(){
+    // delayed load.
     if(updateDelay > 100){
       lines = loadStrings("https://www.theworldcounts.com/embeds/counters/66");
       line = lines[lines.length-14];
       updateDelay = 0;
       line = line.substring(18, 29) + "%";
-      println("UPdate");
+      // println("UPdate");
     }
 
     pushMatrix();
